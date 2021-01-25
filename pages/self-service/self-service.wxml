@@ -1,0 +1,20 @@
+<view class="page" data-weui-theme="{{theme}}">
+    <view class="page__hd">
+        <view>
+          <image class="logo" src="/images/logo.png"></image>
+        </view>
+    </view>
+    <view class="page__bd">
+        <mp-grids grids="{{grids}}"></mp-grids>
+    </view>
+</view>
+
+<!-- <view class="container">
+  <view class="page-body">
+    <view class="btn-area">
+      <navigator url="/pages/order-release/order-release" open-type="navigate" hover-class="ohter-navigator">
+       <button type="default">订单申请</button>
+      </navigator>
+    </view>
+  </view>
+</view> -->

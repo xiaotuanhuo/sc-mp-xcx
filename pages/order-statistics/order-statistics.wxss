@@ -1,0 +1,68 @@
+.order-kinds {
+  background-color: #D9D9D9;
+  padding: 20rpx;
+}
+.order-statistics {
+  background-color: #D9D9D9;
+  padding: 20rpx;
+}
+.tab1,.tab2 {
+  background-color: #fff;
+  height: 500rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ssl-info {
+  height:500rpx;
+  width:50%;
+  float:left;
+}
+.complete {
+  margin-top: 40rpx;
+  margin-left: 20%;
+  font-size: 12px;
+  color:#C5BCB8;
+  float: left;
+}
+.complete-title {
+  margin-top:80rpx;
+  font-size: 14px;
+  text-align: center;
+}
+.center {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.completed-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #829BC6;
+  float: left;
+}
+.cancel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #EF7765;
+  float: left;
+}
+.notComplete-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #F8B84E;
+  float: left;
+}
+.statisticsTab1,.statisticsTab2,.statisticsTab3 {
+  background-color: #fff;
+  height: 500rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

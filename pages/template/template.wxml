@@ -1,0 +1,28 @@
+<template name="orderListTemplate">
+  <view class="weui-form-preview">
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">患者</view>
+        <view class="weui-form-preview__value_in-hd">{{patientName}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__bd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">手术名称</view>
+        <view class="weui-form-preview__value">{{operativeName}}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">手术时间</view>
+        <view class="weui-form-preview__value">{{operateStartTime}}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">订单状态</view>
+        <view class="weui-form-preview__value">{{documentState}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__ft">
+      <navigator url="/pages/evaluate/evaluate?documentId={{documentId}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" wx:if="{{documentState=='已完成'}}">评价</navigator>
+      <navigator url="/pages/order-detail/order-detail?documentId={{documentId}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">详情</navigator>
+    </view>
+  </view>
+</template>

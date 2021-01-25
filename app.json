@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/me/me",
+    "pages/order-release/order-release",
+    "pages/order-list/order-list",
+    "pages/order-detail/order-detail",
+    "pages/evaluate/evaluate",
+    "pages/login/login",
+    "pages/sign-out/sign-out",
+    "pages/order-statistics/order-statistics"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "夙 呈",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor": "#F7F7FA",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-selected.png"
+      },
+      {
+        "pagePath": "pages/order-statistics/order-statistics",
+        "text": "订单统计",
+        "iconPath": "images/report.png",
+        "selectedIconPath": "images/report-selected.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "个人中心",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me-selected.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 120000,
+    "downloadFile": 120000
+  },
+  "sitemapLocation": "sitemap.json",
+  "debug": true,
+  "style": "v2",
+  "useExtendedLib": {
+    "weui":true
+  },
+  "darkmode": true
+}

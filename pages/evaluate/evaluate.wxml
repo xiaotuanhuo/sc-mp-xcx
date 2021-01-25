@@ -1,0 +1,10 @@
+<view class="page">
+  <view class="evaluateStar">
+    手术满意度：
+  <wux-rater slot="footer" allow-half allow-clear allow-touch-move controlled value="{{ evaluateStar }}" bind:change="onChange" star="♡" />
+  </view>
+  <view class="evaluateView">
+    <textarea name="evaluateText" class="evaluate" value="{{evaluateText}}" placeholder="请输入您的评价..." bindinput="evaluateTextChange"/>
+  </view>
+  <button class="evaluateSubmit" bindtap="evaluateSubmit" disabled="{{isDisabled}}">提交</button>
+</view>

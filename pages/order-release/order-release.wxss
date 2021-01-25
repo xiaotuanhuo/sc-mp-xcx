@@ -1,0 +1,43 @@
+@import '/common/common.wxss';
+
+.weui-form{
+  padding: 0px;
+}
+.weui-form__control-area {
+  margin: 20px 0;
+}
+.weui-dialog__bd{
+  padding: 0 10px;
+  margin-bottom: 12px;
+}
+.weui-dialog__hd {
+  padding: 5px;
+}
+.selectedOperativesView {
+  margin-top: 30rpx;
+}
+.selectedOperativesBody {
+  border: 1px solid black;
+  /* height: 200rpx; */
+}
+.selectedOperativesTitle {
+  text-align: left;
+  font-weight: bold;
+  color: #07c160;
+}
+.weui-flex {
+  border-bottom: 1px solid black;
+}
+.operate {
+  color: red;
+  padding: 0 10rpx;
+}
+.sequence {
+  padding: 0 10rpx;
+}
+.buttonStyle {
+  color: #07c160;
+}
+.placeholder,.weui-input {
+  text-align: right;
+}

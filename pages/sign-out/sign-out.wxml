@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="weui-form-preview">
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">昵称</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{user.userName != null}}">{{user.userName}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">账号</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{user.loginName != null}}">{{user.loginName}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">性别</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{user.sex != null && user.sex == '0'}}">女</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{user.sex != null && user.sex == '1'}}">男</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">年龄</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{user.age != null}}">{{user.age}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="sign-out-btn-view">
+    <button class='sign-out-btn' bindtap="signOut">登出</button>
+  </view>
+</view>

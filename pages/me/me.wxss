@@ -1,0 +1,36 @@
+@import '/common/common.wxss';
+
+.mePageHeader {
+  padding-top: 20px;
+  color: white;
+  background-image: linear-gradient(180deg,#07c160,#ffffff);
+  height: 80px;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 0 20rpx;
+  border-radius: 50%;
+}
+
+.no-login-avatar {
+  float: left;
+}
+
+.no-login-text {
+  line-height: 80px;
+}
+
+.logined-avatar{
+  float: left;
+}
+
+.logined-text {
+  line-height: 80px;
+}
+
+.mePageBody {
+  margin-top: 40rpx;
+  background-color: #ffffff;
+}

@@ -1,0 +1,24 @@
+@import '/common/common.wxss';
+.evaluate {
+  height: 200rpx;
+  width: 90%;
+  border: 1px solid #b3afaf;
+  margin: auto;
+}
+
+.evaluateView {
+  background-color: #fff;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  margin: 40rpx auto;
+}
+
+.evaluateStar{
+  background-color: #fff;
+  padding: 35rpx;
+}
+
+.evaluateSubmit {
+  background-color: #F69E3C;
+  color: #ffffff;
+}

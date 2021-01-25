@@ -1,0 +1,34 @@
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="mePageHeader">
+    <view class="no-login-view" wx:if="{{!hadLogin}}">
+      <view class="no-login-avatar">
+        <image class="userinfo-avatar" src="/images/no-login.jpg" mode="cover"></image>
+      </view>
+      <view class="no-login-text" bindtap="goLogin">
+        请登录
+        <mp-icon type="field" icon="arrow" color="white" size="{{10}}"></mp-icon>
+      </view>
+    </view>
+    <view class="logined-view" wx:else>
+      <view class="logined-avatar">
+        <image class="userinfo-avatar" src="/images/no-login.jpg" mode="cover"></image>
+      </view>
+      <view class="logined-text" bindtap="goSignOut">
+        {{user.userName}}
+        <mp-icon type="field" icon="arrow" color="white" size="{{10}}"></mp-icon>
+      </view>
+    </view>
+  </view>
+  <view class="mePageBody">
+    <view class="weui-cell weui-cell_access weui-cell_link" bindtap="myOrders">
+      <mp-icon type="field" icon="note" color="#07c160" size="{{23}}"></mp-icon>
+      <view class="weui-cell__bd">我的订单</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="weui-cell weui-cell_access weui-cell_link" bindtap="orderRelease">
+      <mp-icon type="field" icon="pencil" color="#07c160" size="{{23}}"></mp-icon>
+      <view class="weui-cell__bd">订单发布</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+  </view>
+</view>

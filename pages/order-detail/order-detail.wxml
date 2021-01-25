@@ -1,0 +1,65 @@
+<view class="page">
+  <view class="weui-form-preview">
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">患者姓名</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.patientName != null}}">{{order.patientName}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">患者年龄</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.patientAge != null}}">{{order.patientAge}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">患者性别</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.patientSex != null && order.patientSex == 1}}">男</view>
+        <view class="weui-form-preview__value_in-hd" wx:else="{{order.patientSex != null && order.patientSex == 0}}">女</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">诊断</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.documentTitle != null}}">{{order.documentTitle}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">手术名称</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.operativeName != null}}">{{order.operativeName}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">手术时间</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.operateStartTime != null}}">{{order.operateStartTime}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">手术医生</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.operateUser != null}}">{{order.operateUser}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">麻醉方法</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.anestheticName != null}}">{{order.anestheticName}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">医院备注</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.hospitalMemo != null}}">{{order.hospitalMemo}}</view>
+      </view>
+    </view>
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">医生备注</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.qa_memo != null}}">{{order.qa_memo}}</view>
+      </view>
+    </view>
+  </view>
+</view>

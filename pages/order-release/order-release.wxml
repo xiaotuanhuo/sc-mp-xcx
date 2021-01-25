@@ -1,0 +1,109 @@
+<view class="page" data-weui-theme="{{theme}}">
+  <mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+  <mp-form-page title="" subtitle="">
+    <mp-form id="orderForm" rules="{{rules}}" models="{{order}}">
+      <mp-cells title="手术时间" footer="">
+        <mp-cell prop="operateStartDate">
+          <view slot="title"><text style="color:red">* </text>开始日期</view>
+          <picker data-field="operateStartDate" mode="date" value="{{order.operateStartDate}}" start="2018-01-01" end="2030-12-31" bindchange="formInputChange">
+            <view class="weui-input">{{order.operateStartDate}}</view>
+          </picker>
+        </mp-cell>
+        <mp-cell prop="operateStartTime">
+          <view slot="title"><text style="color:red">* </text>开始时间</view>
+          <picker data-field="operateStartTime" mode="time" value="{{order.operateStartTime}}" bindchange="formInputChange">
+            <view class="weui-input">{{order.operateStartTime}}</view>
+          </picker>
+        </mp-cell>
+      </mp-cells>
+
+      <mp-cells title="客户信息">
+        <mp-cell prop="patientName">
+          <view slot="title"><text style="color:red">* </text>姓名</view>
+          <input bindinput="formInputChange" data-field="patientName" class="weui-input" value="{{order.patientName}}" placeholder="姓名" placeholder-class="placeholder"/>
+        </mp-cell>
+        <mp-cell prop="patientSex" ext-class="weui-cell_select weui-cell_select-after">
+          <view slot="title" class="weui-label"><text style="color:red">* </text>性别</view>
+            <picker data-field="patientSex" bindchange="bindSexChange" value="{{order.patientSex}}" range="{{patientSexs}}">
+              <view class="weui-select">
+                <view style="margin-right:80rpx;text-align: right;">{{patientSexs[order.patientSex]}}</view>
+              </view>
+            </picker>
+        </mp-cell>
+        <mp-cell prop="patientAge">
+          <view slot="title"><text style="color:red">* </text>年龄</view>
+          <input bindinput="formInputChange" data-field="patientAge" class="weui-input" value="{{order.patientAge}}" type="number" placeholder="年龄" placeholder-class="placeholder"/>
+        </mp-cell>
+        <mp-cell prop="patientNum">
+          <view slot="title">住院号</view>
+          <input bindinput="formInputChange" data-field="patientNum" class="weui-input" value="{{order.patientNum}}" placeholder="住院号" placeholder-class="placeholder"/>
+        </mp-cell>
+        <mp-cell prop="patientBednum">
+          <view slot="title">病床号</view>
+          <input bindinput="formInputChange" data-field="patientBednum" class="weui-input" value="{{order.patientBednum}}" placeholder="病床号" placeholder-class="placeholder"/>
+        </mp-cell>
+      </mp-cells>
+
+      <mp-cells title="手术信息" footer="">
+        <mp-cell prop="documentTitle">
+          <view slot="title">诊断</view>
+          <input bindinput="formInputChange" data-field="documentTitle" class="weui-input" value="{{order.documentTitle}}" placeholder="诊断" placeholder-class="placeholder"/>
+        </mp-cell>
+        <mp-cell bindtap="searchOperativeName">
+          <view slot="title"><text style="color:red">* </text>手术名称</view>
+          <view slot="footer">
+            <mp-icon type="field" icon="arrow" color="#B2B2B2" size="{{12}}"></mp-icon>
+          </view>
+        </mp-cell>
+        <!-- <view class="weui-cell weui-cell_access" bindtap="searchOperativeName">
+          <view class="weui-cell__bd">手术名称</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view> -->
+        <mp-dialog show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}" mask-closable="{{false}}">
+            <view style="height:{{height*0.8}}rpx">
+              <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+
+              <view class="selectedOperativesView" wx:if="{{selectedOperatives.length!=0}}">
+                <view class="selectedOperativesTitle">已选择手术列表：</view>
+                <view class="selectedOperativesBody">
+                  <view class="weui-flex" wx:for="{{selectedOperatives}}" wx:key="value">
+                    <view class="sequence">{{index+1}}</view>
+                    <view class="weui-flex__item">{{item.text}}</view>
+                    <view class="operate" data-index="{{index}}" bindtap="deleteSelectedOperative">
+                      <mp-icon type="field" icon="delete" color="red" size="{{20}}"></mp-icon>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+        </mp-dialog>
+        <mp-cell prop="operateUser">
+          <view slot="title"><text style="color:red">* </text>手术医生</view>
+          <input bindinput="formInputChange" data-field="operateUser" class="weui-input" value="{{order.operateUser}}" placeholder="手术医生" placeholder-class="placeholder"/>
+        </mp-cell>
+        <mp-cell prop="operateQide">
+          <view slot="title">手术助手</view>
+          <input bindinput="formInputChange" data-field="operateQide" class="weui-input" value="{{order.operateQide}}" placeholder="手术助手" placeholder-class="placeholder"/>
+        </mp-cell>
+        <mp-cell prop="anestheticId" ext-class="weui-cell_select weui-cell_select-after">
+          <view slot="title" class="weui-label">
+            <text style="color:red">* </text>麻醉方法
+          </view>
+          <picker data-field="anestheticId" bindchange="bindAnestheticChange" value="{{anestheticIndex}}" range="{{anesthetics}}" range-key="anestheticName">
+            <view class="weui-select">
+              <view style="margin-right:80rpx;text-align: right;">{{anesthetics[anestheticIndex].anestheticName}}</view>
+            </view>
+          </picker>
+        </mp-cell>
+        <mp-cell prop="memo">
+          <view slot="title">备注</view>
+          <input bindinput="formInputChange" data-field="memo" class="weui-input" value="{{order.memo}}" placeholder="备注" placeholder-class="placeholder"/>
+        </mp-cell>
+      </mp-cells>
+    </mp-form>
+    
+    <view slot="button">
+      <button class="weui-btn" type="primary" bindtap="submitForm">提交信息</button>
+    </view>
+  </mp-form-page>
+</view>

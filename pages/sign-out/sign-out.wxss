@@ -1,0 +1,8 @@
+.sign-out-btn {
+  background-color: #07c160;
+  color: #ffffff;
+}
+
+.sign-out-btn-view {
+  margin-top: 200rpx;
+}

@@ -1,0 +1,78 @@
+<view class="page">
+  <view class="order-kinds">
+    <i-tabs current="{{ current }}" color="#586FAA" bindchange="handleChange">
+      <i-tab key="tab1" title="今日手术量"></i-tab>
+      <i-tab key="tab2" title="月度手术量"></i-tab>
+    </i-tabs>
+    <view wx:if="{{tab1}}" class='tab1'>
+      <view style="height:500rpx;width:95%">
+        <view class="ssl-info">
+          <view>
+            <view class="complete-title">今日新增手术量 {{today.completed+today.notComplete+today.cancel}}单</view>
+            <view class="complete center">
+              <view class="completed-dot"></view>
+              <text decode="{{true}}">&ensp;已完成：{{today.completed}}单</text>
+            </view>
+            <view  class="complete center">
+              <view class="notComplete-dot"></view>
+              <text decode="{{true}}">&ensp;未完成：{{today.notComplete}}单</text>
+            </view>
+            <view  class="complete center">
+              <view class="cancel-dot"></view>
+              <text decode="{{true}}">&ensp;取消：{{today.cancel}}单</text>
+            </view>
+          </view>
+        </view>
+        <view style="height:500rpx;width:50%;float:left;">
+          <ec-canvas id="jrssl-chart" canvas-id="jrssl-chart" ec="{{ jrsslEc }}" force-use-old-canvas="true"></ec-canvas>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{tab2}}" class='tab2'>
+      <view style="height:500rpx;width:95%">
+        <view class="ssl-info">
+          <view>
+            <view class="complete-title">月度手术量 {{month.completed+month.notComplete+month.cancel}}单</view>
+            <view class="complete center">
+              <view class="completed-dot"></view>
+              <text decode="{{true}}">&ensp;已完成：{{month.completed}}单</text>
+            </view>
+            <view  class="complete center">
+              <view class="notComplete-dot"></view>
+              <text decode="{{true}}">&ensp;未完成：{{month.notComplete}}单</text>
+            </view>
+            <view  class="complete center">
+              <view class="cancel-dot"></view>
+              <text decode="{{true}}">&ensp;取消：{{month.cancel}}单</text>
+            </view>
+          </view>
+        </view>
+        <view style="height:500rpx;width:50%;float:left;">
+          <ec-canvas id="ydssl-chart" canvas-id="ydssl-chart" ec="{{ ydsslEc }}" force-use-old-canvas="true"></ec-canvas>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="order-statistics">
+    <i-tabs current="{{ statisticsCurrent }}" color="#586FAA" bindchange="statisticsHandleChange">
+      <i-tab key="statisticsTab1" title="周手术量"></i-tab>
+      <i-tab key="statisticsTab2" title="月手术量"></i-tab>
+      <i-tab key="statisticsTab3" title="年手术量"></i-tab>
+    </i-tabs>
+    <view wx:if="{{statisticsTab1}}" class='statisticsTab1'>
+      <view style="height:500rpx;width:95%">
+        <ec-canvas id="weekSsl-chart" canvas-id="weekSsl-chart" ec="{{ weekSslEc }}" force-use-old-canvas="true"></ec-canvas>
+      </view>
+    </view>
+    <view wx:if="{{statisticsTab2}}" class='statisticsTab2'>
+      <view style="height:500rpx;width:95%">
+        <ec-canvas id="monthSsl-chart" canvas-id="monthSsl-chart" ec="{{ monthSslEc }}" force-use-old-canvas="true"></ec-canvas>
+      </view>
+    </view>
+    <view wx:if="{{statisticsTab3}}" class='statisticsTab3'>
+      <view style="height:500rpx;width:95%">
+        <ec-canvas id="yearSsl-chart" canvas-id="yearSsl-chart" ec="{{ yearSslEc }}" force-use-old-canvas="true"></ec-canvas>
+      </view>
+    </view>
+  </view>
+</view>

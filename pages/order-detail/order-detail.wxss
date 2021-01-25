@@ -1,0 +1,6 @@
+.weui-form-preview__hd {
+  position: relative;
+  padding: 10px;
+  text-align: right;
+  line-height: 2em;
+}

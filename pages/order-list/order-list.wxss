@@ -1,0 +1,58 @@
+@import '/common/common.wxss';
+
+.weui-form-preview {
+  margin-bottom: 10px;
+}
+
+.page_title{
+  height: 85rpx;
+}
+
+.filterSwitch {
+  border: 2px solid #07c160;
+  width: 100rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: #07c160;
+  background-color:transparent;
+  height: 60rpx;
+  font-size: 30rpx;
+  border-radius: 30rpx;
+  position: fixed;
+  cursor: pointer;
+  top: 1%;
+  right: 2%;
+  z-index:10;
+}
+
+.show{
+  display: block;
+ }
+ .hide{
+  display: none;
+ }
+ .filterPanel{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-color:rgba(0, 0, 0, .5);
+  z-index: 2;
+  left: 0;
+  top: 0;
+ }
+ .filterContent{
+  padding: 0;
+  width: 90%;
+  background: #f5f3f1;
+  margin: 15% auto;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+ }
+
+ .weui-form__control-area {
+  margin: 20rpx 0;
+}

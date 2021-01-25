@@ -1,0 +1,12 @@
+@import '/common/common.wxss';
+
+.imgView {
+  
+}
+.scImg {
+  width: 100%;
+  height: 380rpx;
+}
+.textView {
+  margin: 0rpx 20rpx;
+}

@@ -1,0 +1,19 @@
+<view class="page" data-weui-theme="{{theme}}">
+  <mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+  <mp-form-page title="登录" subtitle="">
+    <mp-form id="loginForm" rules="{{rules}}" models="{{user}}">
+      <mp-cells title="" footer="">
+        <mp-cell prop="name" title="用户名" ext-class="">
+          <input bindinput="loginFormInputChange" data-field="name" class="weui-input" value="{{user.name}}" placeholder="请输入用户名"/>
+        </mp-cell>
+        <mp-cell prop="pws" title="密码" ext-class="">
+          <input bindinput="loginFormInputChange" password data-field="pws" class="weui-input" value="{{user.pws}}" placeholder="请输入密码"/>
+        </mp-cell>
+      </mp-cells>
+    </mp-form>
+    
+    <view slot="button">
+      <button class="weui-btn" type="primary" bindtap="submitForm">确定</button>
+    </view>
+  </mp-form-page>
+</view>
