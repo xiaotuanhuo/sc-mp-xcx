@@ -63,7 +63,12 @@ Page({
   },
   myOrders:function(){
     wx.navigateTo({
-      url: '/pages/order-list/order-list'
+      url: '/pages/order-list/order-list?flag=allOrder'
+    })
+  },
+  myEvaluate:function(){
+    wx.navigateTo({
+      url: '/pages/order-list/order-list?flag=evaluateOrder'
     })
   },
   orderRelease:function(){

@@ -499,6 +499,8 @@ Page({
           }
         }
       })
+    }else{
+      
     }
   },
   onReady: function(){

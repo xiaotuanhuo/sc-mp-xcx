@@ -12,3 +12,8 @@
   font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
   max-width: 600px;
 }
+.split-line {
+  height: 30rpx;
+  width: 100%;
+  background-color: var(--weui-BG-1);
+}

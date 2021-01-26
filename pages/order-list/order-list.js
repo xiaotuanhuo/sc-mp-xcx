@@ -11,6 +11,9 @@ Page({
   },
   data:{
     theme: app.globalData.theme,
+    current: 'tab1',
+    tab1: true, //所有订单
+    tab2: false, //待评价订单
     isFilterPanelShow: false,
     filter: {
       patientName: '',
@@ -18,24 +21,46 @@ Page({
       qaUser: '',
       startDate: '',
       endDate: '',
-      orgId: ''
+      orgId: '',
     },
-    page: 1,
-    limit:5,
-    sumPage:1,
     show: false,
-    orders:[
-      // {
-      //   documentId: '09rrhMgff6xCyxAs4OX',
-      //   patientName: '张珊',
-      //   operativeName: '下巴假体术',
-      //   operateStartTime: '2020-11-20 10:04',
-      //   documentState: '已完成'
-      // }
-    ],
+    limit: 5,
+    allOrder: {
+      page: 1,
+      sumPage: 1,
+      orders:[
+        // {
+        //   documentId: '09rrhMgff6xCyxAs4OX',
+        //   patientName: '张珊',
+        //   operativeName: '下巴假体术',
+        //   operateStartTime: '2020-11-20 10:04',
+        //   documentState: '已完成'
+        // }
+      ],
+    },
+    evaluateOrder: {
+      page: 1,
+      sumPage: 1,
+      orders:[
+      ],
+    }
   },
+  handleChange ({ detail }) {
+    var index = detail.key
+    if(index == 'tab1'){
+      this.setData({
+        current: index,
+        tab1:true,
+        tab2: false
+      });
+    }else if(index == 'tab2'){
+      this.setData({
+        current: index,
+        tab1: false,
+        tab2:true
+      })
+    }
 
-  onLoad(){
     if(app.globalData.userInfo != null){
       this.setData({
         filter: {
@@ -44,7 +69,96 @@ Page({
           qaUser: '',
           startDate: '',
           endDate: '',
-          orgId: app.globalData.userInfo.roleTypeId
+          orgId: app.globalData.userInfo.roleTypeId,
+        },
+        show: true,
+      })
+      var _this = this;
+      wx.request({
+        url: app.globalData.baseUrl+'xcx/searchOrderList',
+        method: 'POST',
+        data: {
+          patientName: _this.data.filter.patientName,
+          operateUser: _this.data.filter.operateUser,
+          qaUser: _this.data.filter.qaUser,
+          startDate: _this.data.filter.startDate,
+          endDate: _this.data.filter.endDate,
+          orgId: _this.data.filter.orgId,
+          page: 1,
+          limit: _this.data.limit,
+          flag: _this.data.tab1?'allOrder':'evaluateOrder'
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        dataType:'json',
+        success (res) {
+          console.log(res.data);
+          if(res.data.code == 0){
+            log.info("切换订单种类，加载订单列表成功");
+            var sumPage = Math.ceil(res.data.count/_this.data.limit);
+            console.log("sum page:"+sumPage);
+            if(_this.data.tab1){
+              _this.setData({
+                allOrder: {
+                  page: 1,
+                  sumPage: sumPage,
+                  orders: res.data.data
+                }
+              });
+            }else{
+              _this.setData({
+                evaluateOrder: {
+                  page: 1,
+                  sumPage: sumPage,
+                  orders: res.data.data
+                }
+              });
+            }
+          }else{
+            log.error("切换订单种类，获取订单列表时失败");
+            wx.showModal({
+              title: '温馨提示',
+              content: '获取订单列表失败',
+              showCancel: false,
+              confirmColor: '#06AE56'
+            })
+          }
+        },
+        complete(){
+          _this.setData({
+            show: false
+          });
+        },
+        fail({errMsg}) {
+          log.error('调用获取订单列表接口失败，'+errMsg)
+        }
+      })
+    }
+  },
+  onLoad(params){
+    if('allOrder' == params.flag){
+      this.setData({
+        current: 'tab1',
+        tab1:true,
+        tab2: false
+      });
+    }else{
+      this.setData({
+        current: 'tab2',
+        tab1: false,
+        tab2: true
+      });
+    }
+    if(app.globalData.userInfo != null){
+      this.setData({
+        filter: {
+          patientName: '',
+          operateUser: '',
+          qaUser: '',
+          startDate: '',
+          endDate: '',
+          orgId: app.globalData.userInfo.roleTypeId,
         },
         show: true
       })
@@ -60,7 +174,8 @@ Page({
           endDate: _this.data.filter.endDate,
           orgId: _this.data.filter.orgId,
           page: 1,
-          limit: _this.data.limit
+          limit: _this.data.limit,
+          flag: _this.data.tab1?'allOrder':'evaluateOrder'
         },
         header: {
           'content-type': 'application/json' // 默认值
@@ -71,11 +186,23 @@ Page({
           if(res.data.code == 0){
             log.info("初次加载订单列表成功");
             var sumPage = Math.ceil(res.data.count/_this.data.limit);
-            console.log("sum page:"+sumPage);
-            _this.setData({
-              orders : res.data.data,
-              sumPage: sumPage
-            });
+            if(_this.data.tab1){
+              _this.setData({
+                allOrder: {
+                  page: 1,
+                  sumPage: sumPage,
+                  orders: res.data.data
+                }
+              });
+            }else{
+              _this.setData({
+                evaluateOrder: {
+                  page: 1,
+                  sumPage: sumPage,
+                  orders: res.data.data
+                }
+              });
+            }
           }else{
             log.error("初次获取订单列表时失败");
             wx.showModal({
@@ -98,9 +225,17 @@ Page({
     }
   },
   onReachBottom: function () {
-    var newPage = this.data.page+1;
+    var newPage;
+    var sumPage;
+    if(this.data.tab1){
+      newPage = this.data.allOrder.page+1;
+      sumPage = this.data.allOrder.sumPage;
+    }else{
+      newPage = this.data.evaluateOrder.page+1;
+      sumPage = this.data.evaluateOrder.sumPage;
+    }
     console.log("onReachBottom..........."+newPage);
-    if(app.globalData.userInfo != null && newPage<=this.data.sumPage){
+    if(app.globalData.userInfo != null && newPage<=sumPage){
       var _this = this;
       _this.setData({
         show: true
@@ -116,7 +251,8 @@ Page({
           endDate: _this.data.filter.endDate,
           orgId: _this.data.filter.orgId,
           page: newPage,
-          limit: _this.data.limit
+          limit: _this.data.limit,
+          flag: _this.data.tab1?'allOrder':'evaluateOrder'
         },
         header: {
           'content-type': 'application/json' // 默认值
@@ -126,10 +262,23 @@ Page({
           console.log(res.data);
           if(res.data.code == 0){
             log.info("第"+newPage+"页订单列表获取成功");
-            _this.setData({
-              orders : _this.data.orders.concat(res.data.data),
-              page : newPage
-            });
+            if(_this.data.tab1){
+              _this.setData({
+                allOrder: {
+                  page: newPage,
+                  sumPage: sumPage,
+                  orders: _this.data.allOrder.orders.concat(res.data.data)
+                }
+              });
+            }else{
+              _this.setData({
+                evaluateOrder: {
+                  page: newPage,
+                  sumPage: sumPage,
+                  orders: _this.data.evaluateOrder.orders.concat(res.data.data)
+                }
+              });
+            }
           }else{
             log.error("加载订单列表失败");
             wx.showModal({
@@ -193,7 +342,8 @@ Page({
           endDate: _this.data.filter.endDate,
           orgId: _this.data.filter.orgId,
           page: 1,
-          limit: _this.data.limit
+          limit: _this.data.limit,
+          flag: _this.data.tab1?'allOrder':'evaluateOrder'
         },
         header: {
           'content-type': 'application/json' // 默认值
@@ -203,10 +353,24 @@ Page({
           console.log(res.data);
           if(res.data.code == 0){
             log.info("搜索订单列表成功");
-            _this.setData({
-              orders : res.data.data,
-              page: 1
-            });
+            var sumPage = Math.ceil(res.data.count/_this.data.limit);
+            if(_this.data.tab1){
+              _this.setData({
+                allOrder: {
+                  page: 1,
+                  sumPage: sumPage,
+                  orders: res.data.data
+                }
+              });
+            }else{
+              _this.setData({
+                evaluateOrder: {
+                  page: 1,
+                  sumPage: sumPage,
+                  orders: res.data.data
+                }
+              });
+            }
           }else{
             log.error("搜索订单列表失败");
             wx.showModal({

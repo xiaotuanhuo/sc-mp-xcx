@@ -4,10 +4,29 @@
         <view class="page_title">
             <text class='filterSwitch' bindtap="isShowFilterPanelEvent">筛选</text>
         </view>
-        
-        <block wx:for="{{orders}}"  wx:key="documentId" wx:for-item="order">
+
+        <!--新加start-->
+        <i-tabs current="{{ current }}" color="#586FAA" bindchange="handleChange">
+            <i-tab key="tab1" title="全部"></i-tab>
+            <i-tab key="tab2" title="待评价"></i-tab>
+        </i-tabs>
+        <view class="split-line"></view>
+        <view wx:if="{{tab1}}" class='tab1'>
+            <block wx:for="{{allOrder.orders}}"  wx:key="documentId" wx:for-item="order">
+                <template is="orderListTemplate" data="{{...order}}"/>
+            </block>
+        </view>
+        <view wx:if="{{tab2}}" class='tab2'>
+            <block wx:for="{{evaluateOrder.orders}}"  wx:key="documentId" wx:for-item="order">
+                <template is="orderListTemplate" data="{{...order}}"/>
+            </block>
+        </view>
+        <!--新加end-->
+
+
+        <!-- <block wx:for="{{orders}}"  wx:key="documentId" wx:for-item="order">
             <template is="orderListTemplate" data="{{...order}}"/>
-        </block>
+        </block> -->
         <mp-loading type="circle" show="{{show}}"></mp-loading>
     </view>
 
