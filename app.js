@@ -52,8 +52,8 @@ App({
     userInfo: null,
     // theme: wx.getSystemInfoSync().theme,
     theme: 'white',
-    baseUrl:'http://192.168.120.225:9080/',
-    // baseUrl:'https://fw1.sucheng-group.com/',
+    // baseUrl:'http://192.168.120.225:9080/',
+    baseUrl:'https://fw1.sucheng-group.com/',
     height:null,
   }
 })

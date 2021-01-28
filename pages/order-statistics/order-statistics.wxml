@@ -24,7 +24,8 @@
           </view>
         </view>
         <view style="height:500rpx;width:50%;float:left;">
-          <ec-canvas id="jrssl-chart" canvas-id="jrssl-chart" ec="{{ jrsslEc }}" force-use-old-canvas="true"></ec-canvas>
+          <!-- <ec-canvas id="jrssl-chart" canvas-id="jrssl-chart" ec="{{ jrsslEc }}" force-use-old-canvas="true"></ec-canvas> -->
+          <ec-canvas id="jrssl-chart" canvas-id="jrssl-chart" ec="{{ jrsslEc }}"></ec-canvas>
         </view>
       </view>
     </view>
@@ -48,7 +49,8 @@
           </view>
         </view>
         <view style="height:500rpx;width:50%;float:left;">
-          <ec-canvas id="ydssl-chart" canvas-id="ydssl-chart" ec="{{ ydsslEc }}" force-use-old-canvas="true"></ec-canvas>
+          <!-- <ec-canvas id="ydssl-chart" canvas-id="ydssl-chart" ec="{{ ydsslEc }}" force-use-old-canvas="true"></ec-canvas> -->
+          <ec-canvas id="ydssl-chart" canvas-id="ydssl-chart" ec="{{ ydsslEc }}"></ec-canvas>
         </view>
       </view>
     </view>
@@ -61,17 +63,20 @@
     </i-tabs>
     <view wx:if="{{statisticsTab1}}" class='statisticsTab1'>
       <view style="height:500rpx;width:95%">
-        <ec-canvas id="weekSsl-chart" canvas-id="weekSsl-chart" ec="{{ weekSslEc }}" force-use-old-canvas="true"></ec-canvas>
+        <!-- <ec-canvas id="weekSsl-chart" canvas-id="weekSsl-chart" ec="{{ weekSslEc }}" force-use-old-canvas="true"></ec-canvas> -->
+        <ec-canvas id="weekSsl-chart" canvas-id="weekSsl-chart" ec="{{ weekSslEc }}"></ec-canvas>
       </view>
     </view>
     <view wx:if="{{statisticsTab2}}" class='statisticsTab2'>
       <view style="height:500rpx;width:95%">
-        <ec-canvas id="monthSsl-chart" canvas-id="monthSsl-chart" ec="{{ monthSslEc }}" force-use-old-canvas="true"></ec-canvas>
+        <!-- <ec-canvas id="monthSsl-chart" canvas-id="monthSsl-chart" ec="{{ monthSslEc }}" force-use-old-canvas="true"></ec-canvas> -->
+        <ec-canvas id="monthSsl-chart" canvas-id="monthSsl-chart" ec="{{ monthSslEc }}"></ec-canvas>
       </view>
     </view>
     <view wx:if="{{statisticsTab3}}" class='statisticsTab3'>
       <view style="height:500rpx;width:95%">
-        <ec-canvas id="yearSsl-chart" canvas-id="yearSsl-chart" ec="{{ yearSslEc }}" force-use-old-canvas="true"></ec-canvas>
+        <!-- <ec-canvas id="yearSsl-chart" canvas-id="yearSsl-chart" ec="{{ yearSslEc }}" force-use-old-canvas="true"></ec-canvas> -->
+        <ec-canvas id="yearSsl-chart" canvas-id="yearSsl-chart" ec="{{ yearSslEc }}"></ec-canvas>
       </view>
     </view>
   </view>

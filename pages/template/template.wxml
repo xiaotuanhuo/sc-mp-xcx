@@ -17,7 +17,7 @@
       </view>
       <view class="weui-form-preview__item">
         <view class="weui-form-preview__label">订单状态</view>
-        <view class="weui-form-preview__value">{{documentState}}</view>
+        <view class="weui-form-preview__value" style="color:#07c160;">{{documentState}}</view>
       </view>
     </view>
     <view class="weui-form-preview__ft">

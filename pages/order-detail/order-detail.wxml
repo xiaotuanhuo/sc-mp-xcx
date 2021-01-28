@@ -52,13 +52,13 @@
     <view class="weui-form-preview__hd">
       <view class="weui-form-preview__item">
         <view class="weui-form-preview__label">医院备注</view>
-        <view class="weui-form-preview__value_in-hd" wx:if="{{order.hospitalMemo != null}}">{{order.hospitalMemo}}</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.memo != null}}">{{order.memo}}</view>
       </view>
     </view>
     <view class="weui-form-preview__hd">
       <view class="weui-form-preview__item">
         <view class="weui-form-preview__label">医生备注</view>
-        <view class="weui-form-preview__value_in-hd" wx:if="{{order.qa_memo != null}}">{{order.qa_memo}}</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.qaMemo != null}}">{{order.qaMemo}}</view>
       </view>
     </view>
   </view>

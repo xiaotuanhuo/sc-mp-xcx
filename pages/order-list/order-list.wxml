@@ -5,7 +5,6 @@
             <text class='filterSwitch' bindtap="isShowFilterPanelEvent">筛选</text>
         </view>
 
-        <!--新加start-->
         <i-tabs current="{{ current }}" color="#586FAA" bindchange="handleChange">
             <i-tab key="tab1" title="全部"></i-tab>
             <i-tab key="tab2" title="待评价"></i-tab>
@@ -21,12 +20,7 @@
                 <template is="orderListTemplate" data="{{...order}}"/>
             </block>
         </view>
-        <!--新加end-->
-
-
-        <!-- <block wx:for="{{orders}}"  wx:key="documentId" wx:for-item="order">
-            <template is="orderListTemplate" data="{{...order}}"/>
-        </block> -->
+        
         <mp-loading type="circle" show="{{show}}"></mp-loading>
     </view>
 

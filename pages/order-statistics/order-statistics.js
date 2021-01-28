@@ -41,15 +41,15 @@ var jrsslOption = {
       },
       data: [
         {
-          value: 5, 
+          value: 0, 
           name: '已完成'
         },
         {
-          value: 4, 
+          value: 0, 
           name: '未完成'
         },
         {
-          value: 1, 
+          value: 0, 
           name: '取消'
         }
       ],
@@ -109,15 +109,15 @@ var ydsslOption = {
       },
       data: [
         {
-          value: 21, 
+          value: 0, 
           name: '已完成'
         },
         {
-          value: 8, 
+          value: 0, 
           name: '未完成'
         },
         {
-          value: 5, 
+          value: 0, 
           name: '取消'
         }
       ],
@@ -191,13 +191,13 @@ var weekOption = {
             type: 'bar',
             barWidth: '50%',
             data: [
-              ['一',10], 
-              ['三',20], 
-              ['二', 200], 
-              ['五',334], 
-              ['四',90], 
-              ['六',330], 
-              ['日',220]],
+              ['一',0], 
+              ['三',0], 
+              ['二',0], 
+              ['五',0], 
+              ['四',0], 
+              ['六',0], 
+              ['日',0]],
             label: {
               show: true,
               position: "outside"
@@ -272,18 +272,18 @@ var yearOption = {
   dataset: {
     dimensions: ['name','value'],
     source: [
-      {name: '1月', value: 30},
-      {name: '2月', value: 50},
-      {name: '3月', value: 100},
-      {name: '4月', value: 70},
-      {name: '5月', value: 200},
-      {name: '6月', value: 120},
-      {name: '7月', value: 90},
-      {name: '8月', value: 30},
-      {name: '9月', value: 50},
-      {name: '10月', value: 100},
-      {name: '11月', value: 70},
-      {name: '12月', value: 200},
+      {name: '1月', value: 0},
+      {name: '2月', value: 0},
+      {name: '3月', value: 0},
+      {name: '4月', value: 0},
+      {name: '5月', value: 0},
+      {name: '6月', value: 0},
+      {name: '7月', value: 0},
+      {name: '8月', value: 0},
+      {name: '9月', value: 0},
+      {name: '10月', value: 0},
+      {name: '11月', value: 0},
+      {name: '12月', value: 0},
     ]
   }
 };
@@ -354,37 +354,37 @@ var monthOption = {
   dataset: {
     dimensions: ['name','value'],
     source: [
-      {name: '1/1', value: 3},
-      {name: '1/2', value: 5},
-      {name: '1/3', value: 10},
-      {name: '1/4', value: 7},
-      {name: '1/5', value: 20},
-      {name: '1/6', value: 12},
-      {name: '1/7', value: 9},
-      {name: '1/8', value: 3},
-      {name: '1/9', value: 5},
-      {name: '1/10', value: 10},
-      {name: '1/11', value: 7},
-      {name: '1/12', value: 20},
-      {name: '1/13', value: 12},
-      {name: '1/14', value: 9},
-      {name: '1/15', value: 3},
-      {name: '1/16', value: 5},
-      {name: '1/17', value: 10},
-      {name: '1/18', value: 7},
-      {name: '1/19', value: 20},
-      {name: '1/20', value: 12},
-      {name: '1/21', value: 9},
-      {name: '1/22', value: 3},
-      {name: '1/23', value: 5},
-      {name: '1/24', value: 10},
-      {name: '1/25', value: 7},
-      {name: '1/26', value: 20},
-      {name: '1/27', value: 12},
-      {name: '1/28', value: 9},
-      {name: '1/29', value: 20},
-      {name: '1/30', value: 12},
-      {name: '1/31', value: 9}
+      {name: '1/1', value: 0},
+      {name: '1/2', value: 0},
+      {name: '1/3', value: 0},
+      {name: '1/4', value: 0},
+      {name: '1/5', value: 0},
+      {name: '1/6', value: 0},
+      {name: '1/7', value: 0},
+      {name: '1/8', value: 0},
+      {name: '1/9', value: 0},
+      {name: '1/10', value: 0},
+      {name: '1/11', value: 0},
+      {name: '1/12', value: 0},
+      {name: '1/13', value: 0},
+      {name: '1/14', value: 0},
+      {name: '1/15', value: 0},
+      {name: '1/16', value: 0},
+      {name: '1/17', value: 0},
+      {name: '1/18', value: 0},
+      {name: '1/19', value: 0},
+      {name: '1/20', value: 0},
+      {name: '1/21', value: 0},
+      {name: '1/22', value: 0},
+      {name: '1/23', value: 0},
+      {name: '1/24', value: 0},
+      {name: '1/25', value: 0},
+      {name: '1/26', value: 0},
+      {name: '1/27', value: 0},
+      {name: '1/28', value: 0},
+      {name: '1/29', value: 0},
+      {name: '1/30', value: 0},
+      {name: '1/31', value: 0}
     ]
   }
 };
@@ -430,14 +430,14 @@ Page({
     tab1: true,
     tab2: false,
     today: {
-      completed: 5,
-      notComplete: 4,
-      cancel: 1
+      completed: 0,
+      notComplete: 0,
+      cancel: 0
     },
     month: {
-      completed: 21,
-      notComplete: 8,
-      cancel: 5
+      completed: 0,
+      notComplete: 0,
+      cancel: 0
     },
     statisticsCurrent: 'statisticsTab1',
     statisticsTab1: true,
@@ -500,12 +500,7 @@ Page({
         }
       })
     }else{
-      
-    }
-  },
-  onReady: function(){
-    var _this = this;
-    if(app.globalData.userInfo != null){
+      var _this = this;
       wx.showLoading({
         title: '加载中...',
       });
@@ -523,65 +518,64 @@ Page({
           console.log(res.data);
           if(res.data.code == 0){
             log.info("订单统计数据获取成功");
-            //今日手术量
-            jrsslOption.series[0].data = res.data.data.todaySsl;
-            jrsslChart.clear();
-            jrsslChart.setOption(jrsslOption);
-            var today_completed;
-            var today_notComplete;
-            var today_cancel;
-            res.data.data.todaySsl.forEach(element => {
-              if(element.name == slInfo[0].name){
-                today_completed = element.value;
-              }else if(element.name == slInfo[1].name){
-                today_notComplete = element.value;
-              }else if(element.name == slInfo[2].name){
-                today_cancel = element.value;
-              }
-            });
-            _this.setData({
-              today: {
-                completed: today_completed,
-                notComplete: today_notComplete,
-                cancel: today_cancel
-              }
-            });
+            setTimeout(function () {
+              //今日手术量
+              jrsslOption.series[0].data = res.data.data.todaySsl;
+              jrsslChart.clear();
+              jrsslChart.setOption(jrsslOption);
+              var today_completed;
+              var today_notComplete;
+              var today_cancel;
+              res.data.data.todaySsl.forEach(element => {
+                if(element.name == slInfo[0].name){
+                  today_completed = element.value;
+                }else if(element.name == slInfo[1].name){
+                  today_notComplete = element.value;
+                }else if(element.name == slInfo[2].name){
+                  today_cancel = element.value;
+                }
+              });
+              _this.setData({
+                today: {
+                  completed: today_completed,
+                  notComplete: today_notComplete,
+                  cancel: today_cancel
+                }
+              });
 
-            //月度手术量（切换后才会加载，所以不能setOption）
-            ydsslOption.series[0].data = res.data.data.ydSsl;
-            // ydsslChart.clear();
-            // ydsslChart.setOption(ydsslOption);
-            var yd_completed;
-            var yd_notComplete;
-            var yd_cancel;
-            res.data.data.ydSsl.forEach(element => {
-              if(element.name == slInfo[0].name){
-                yd_completed = element.value;
-              }else if(element.name == slInfo[1].name){
-                yd_notComplete = element.value;
-              }else if(element.name == slInfo[2].name){
-                yd_cancel = element.value;
-              }
-            });
-            _this.setData({
-              month: {
-                completed: yd_completed,
-                notComplete: yd_notComplete,
-                cancel: yd_cancel
-              }
-            });
+              //月度手术量（切换后才会加载，所以不能setOption）
+              ydsslOption.series[0].data = res.data.data.ydSsl;
+              var yd_completed;
+              var yd_notComplete;
+              var yd_cancel;
+              res.data.data.ydSsl.forEach(element => {
+                if(element.name == slInfo[0].name){
+                  yd_completed = element.value;
+                }else if(element.name == slInfo[1].name){
+                  yd_notComplete = element.value;
+                }else if(element.name == slInfo[2].name){
+                  yd_cancel = element.value;
+                }
+              });
+              _this.setData({
+                month: {
+                  completed: yd_completed,
+                  notComplete: yd_notComplete,
+                  cancel: yd_cancel
+                }
+              });
 
-            //周手术量
-            weekOption.series[0].data = res.data.data.weekSsl;
-            weekChart.clear();
-            weekChart.setOption(weekOption);
-            
-            //月手术量
-            monthOption.dataset.source = res.data.data.monthSsl;
+              //周手术量
+              weekOption.series[0].data = res.data.data.weekSsl;
+              weekChart.clear();
+              weekChart.setOption(weekOption);
+              
+              //月手术量
+              monthOption.dataset.source = res.data.data.monthSsl;
 
-            //年手术量
-            yearOption.dataset.source = res.data.data.yearSsl;
-
+              //年手术量
+              yearOption.dataset.source = res.data.data.yearSsl;
+            }, 1000);
           }else{
             log.error(res.data.msg);
             wx.showModal({
@@ -601,22 +595,103 @@ Page({
       })
     }
   },
+  // onReady: function(){
+  //   var _this = this;
+  //   if(app.globalData.userInfo != null){
+  //     wx.showLoading({
+  //       title: '加载中...',
+  //     });
+  //     wx.request({
+  //       url: app.globalData.baseUrl+'xcx/getOrderStatistics',
+  //       method: 'GET',
+  //       data: {
+  //         orgId: app.globalData.userInfo.roleTypeId
+  //       },
+  //       header: {
+  //         'content-type': 'application/json' // 默认值
+  //       },
+  //       dataType:'json',
+  //       success (res) {
+  //         console.log(res.data);
+  //         if(res.data.code == 0){
+  //           log.info("订单统计数据获取成功");
+  //           //今日手术量
+  //           jrsslOption.series[0].data = res.data.data.todaySsl;
+  //           jrsslChart.clear();
+  //           jrsslChart.setOption(jrsslOption);
+  //           var today_completed;
+  //           var today_notComplete;
+  //           var today_cancel;
+  //           res.data.data.todaySsl.forEach(element => {
+  //             if(element.name == slInfo[0].name){
+  //               today_completed = element.value;
+  //             }else if(element.name == slInfo[1].name){
+  //               today_notComplete = element.value;
+  //             }else if(element.name == slInfo[2].name){
+  //               today_cancel = element.value;
+  //             }
+  //           });
+  //           _this.setData({
+  //             today: {
+  //               completed: today_completed,
+  //               notComplete: today_notComplete,
+  //               cancel: today_cancel
+  //             }
+  //           });
+
+  //           //月度手术量（切换后才会加载，所以不能setOption）
+  //           ydsslOption.series[0].data = res.data.data.ydSsl;
+  //           var yd_completed;
+  //           var yd_notComplete;
+  //           var yd_cancel;
+  //           res.data.data.ydSsl.forEach(element => {
+  //             if(element.name == slInfo[0].name){
+  //               yd_completed = element.value;
+  //             }else if(element.name == slInfo[1].name){
+  //               yd_notComplete = element.value;
+  //             }else if(element.name == slInfo[2].name){
+  //               yd_cancel = element.value;
+  //             }
+  //           });
+  //           _this.setData({
+  //             month: {
+  //               completed: yd_completed,
+  //               notComplete: yd_notComplete,
+  //               cancel: yd_cancel
+  //             }
+  //           });
+
+  //           //周手术量
+  //           weekOption.series[0].data = res.data.data.weekSsl;
+  //           weekChart.clear();
+  //           weekChart.setOption(weekOption);
+            
+  //           //月手术量
+  //           monthOption.dataset.source = res.data.data.monthSsl;
+
+  //           //年手术量
+  //           yearOption.dataset.source = res.data.data.yearSsl;
+
+  //         }else{
+  //           log.error(res.data.msg);
+  //           wx.showModal({
+  //             title: '温馨提示',
+  //             content: res.data.msg,
+  //             showCancel: false,
+  //             confirmColor: '#06AE56'
+  //           })
+  //         }
+  //       },
+  //       fail({errMsg}) {
+  //         log.error('调用订单统计接口失败，'+errMsg)
+  //       },
+  //       complete(){
+  //         wx.hideLoading();
+  //       }
+  //     })
+  //   }
+  // },
   onHide:function(){
     log.info("离开“订单统计”");
   },
-
-
-
-  // onReady:function(){
-  //   setTimeout(function () {
-  //     var newData = [
-  //       {value: 8, name: '已完成'},
-  //       {value: 4, name: '未完成'},
-  //       {value: 4, name: '取消'}
-  //     ];
-  //     ydsslOption.series[0].data = newData;
-  //     // ydsslChart.clear();
-  //     // ydsslChart.setOption(ydsslOption);
-  //   }, 2000);
-  // }
 })
