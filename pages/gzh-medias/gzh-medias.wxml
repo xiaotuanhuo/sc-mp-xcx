@@ -1,0 +1,4 @@
+<import src="/pages/template/template.wxml"/>
+<block wx:for="{{medias}}"  wx:key="mediaId" wx:for-item="media">
+  <template is="gzhMediaTemplate" data="{{...media}}"/>
+</block>

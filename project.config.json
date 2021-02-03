@@ -23,6 +23,7 @@
     "compileHotReLoad": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
+    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -36,12 +37,11 @@
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "useApiHostProcess": false
+    "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.13.2",
-  "appid": "wx2df456c78c6b50ae",
+  "libVersion": "2.14.4",
+  "appid": "wx5139fc8c8b8878f7",
   "projectname": "sc-mp-xcx",
   "isGameTourist": false,
   "simulatorType": "wechat",

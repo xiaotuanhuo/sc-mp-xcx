@@ -36,6 +36,16 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+//文本切割
+function cutstr(str, len){
+  if (len > str.length) {
+    return str;
+  }else{
+    var res = str.subString(0, len);
+    return res.concat("...");
+  }
+}
+
 const stringContains = 
 
 module.exports = {
@@ -43,5 +53,6 @@ module.exports = {
   formatDate: formatDate,
   formatTime: formatTime,
   formatNumber: formatNumber,
-  formatTime1: formatTime1
+  formatTime1: formatTime1,
+  cutstr: cutstr
 }

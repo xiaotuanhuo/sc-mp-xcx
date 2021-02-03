@@ -1,19 +1,29 @@
+<import src="/pages/template/template.wxml"/>
 <view class="page" data-weui-theme="{{theme}}">
   <view class="imgView">
     <swiper indicator-dots="{{true}}" indicator-color="#999" indicator-active-color="#fff"
         autoplay="{{true}}" interval="{{2000}}" duration="{{500}}">
         <block wx:for="{{background}}" wx:key="*this">
           <swiper-item>
-            <image class="scImg" src="{{item}}"/>
+            <image class="scImg" src="{{item}}" mode="aspectFit"/>
           </swiper-item>
         </block>
     </swiper>
-    <!-- <image class="scImg" src="/images/sc.jpg" mode="aspectFit"/> -->
+    <!-- <image class="scImg" src="/images/sc-0.jpg" mode="aspectFit"/> -->
   </view>
-  <view class="textView">
+  <view class="focus">
+    <view class="focus-title">
+      <view class="focus-title-text">热点关注</view>
+      <view class="focus-title-more" bindtap="moreMedia">更多</view>
+    </view>
+    <block wx:for="{{medias}}"  wx:key="mediaId" wx:for-item="media">
+      <template is="gzhMediaTemplate" data="{{...media}}"/>
+    </block>
+  </view>
+  <!-- <view class="textView">
     <text space="nbsp" user-select="{{true}}">
         夙呈医生集团成立于2017年7月，是全国最早的麻醉医生集团，专注于泛麻醉领域。夙呈历经脚踏实地的发展与积累，无论是线上、线下，都在不断扩大服务的范围和能力。
         集团对麻醉科室建设，管理，质控等多方面进行指导与规范，强大的医师储备也为其提供有力支持。作为立足上海，面向全国的医生集团，已在江、浙、广、深、成都等地成立分部，成功链接了全国多家医疗机构，形成了庞大的社会资源。可为战略合作的医疗机构和医生集团扩展业务提供巨大便利。
     </text>
-  </view>
+  </view> -->
 </view>

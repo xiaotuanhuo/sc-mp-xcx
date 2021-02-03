@@ -1,0 +1,11 @@
+//文本切割
+function cutstr(str, len){
+  if (len > str.length) {
+    return str;
+  }else{
+    var res = str.substring(0, len);
+    return res.concat("...");
+  }
+}
+
+module.exports.cutstr = cutstr;

@@ -4,7 +4,7 @@ const app = getApp()
 Page({
   onShareAppMessage() {
     return {
-      title: '凤呈',
+      title: '夙呈',
       path: '/pages/home/home'
     }
   },

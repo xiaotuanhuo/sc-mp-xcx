@@ -1,0 +1,28 @@
+.focus-body {
+  display: inline-flex;
+  margin-top: 30rpx;
+  width: 100%;
+  border-bottom: 1px solid #C1B7B1;
+}
+.focus-body-thumb {
+  float: left;
+}
+.thumb-pic {
+  width: 220rpx;
+  height: 180rpx;
+}
+.focus-body-description {
+  float: left;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.focus-body-description-title {
+  height: 130rpx;
+  font-size: 15px;
+  word-break:break-all;
+}
+.focus-body-description-datetime {
+  height: 50rpx;
+  color: #C1B7B1;
+  font-size: 14px;
+}

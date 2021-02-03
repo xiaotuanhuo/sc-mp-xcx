@@ -8,7 +8,7 @@ const app = getApp()
 Page({
   onShareAppMessage() {
     return {
-      title: '凤呈',
+      title: '夙呈',
       path: '/pages/home/home'
     }
   },
@@ -225,6 +225,7 @@ Page({
                   if (res.confirm) {
                     _this.setData({
                       anestheticIndex:0,
+                      selectedOperatives:[],
                       order:{
                         patientName: "",
                         patientAge: "",

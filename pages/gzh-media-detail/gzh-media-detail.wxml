@@ -1,0 +1,2 @@
+<!--pages/gzh-media-detail/gzh-media-detail.wxml-->
+<web-view src="{{url}}"></web-view>

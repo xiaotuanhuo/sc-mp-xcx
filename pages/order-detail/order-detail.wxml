@@ -16,7 +16,7 @@
       <view class="weui-form-preview__item">
         <view class="weui-form-preview__label">患者性别</view>
         <view class="weui-form-preview__value_in-hd" wx:if="{{order.patientSex != null && order.patientSex == 1}}">男</view>
-        <view class="weui-form-preview__value_in-hd" wx:else="{{order.patientSex != null && order.patientSex == 0}}">女</view>
+        <view class="weui-form-preview__value_in-hd" wx:if="{{order.patientSex != null && order.patientSex == 0}}">女</view>
       </view>
     </view>
     <view class="weui-form-preview__hd">

@@ -1,3 +1,5 @@
+<wxs src="../../utils/util.wxs" module="tools" />
+<!--订单列表template-->
 <template name="orderListTemplate">
   <view class="weui-form-preview">
     <view class="weui-form-preview__hd">
@@ -23,6 +25,22 @@
     <view class="weui-form-preview__ft">
       <navigator url="/pages/evaluate/evaluate?documentId={{documentId}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" wx:if="{{documentState=='已完成'}}">评价</navigator>
       <navigator url="/pages/order-detail/order-detail?documentId={{documentId}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">详情</navigator>
+    </view>
+  </view>
+</template>
+<!--热点关注template-->
+<template name="gzhMediaTemplate">
+  <view class="focus-body" data-url="{{url}}" bindtap="toMediaDetail">
+    <view class="focus-body-thumb">
+      <image class="thumb-pic" src="{{thumbUrl}}"></image>
+    </view>
+    <view class="focus-body-description">
+      <view class="focus-body-description-title">
+        {{tools.cutstr(title,24)}}
+      </view>
+      <view class="focus-body-description-datetime">
+        {{updateTime}}
+      </view>
     </view>
   </view>
 </template>

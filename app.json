@@ -8,7 +8,9 @@
     "pages/evaluate/evaluate",
     "pages/login/login",
     "pages/sign-out/sign-out",
-    "pages/order-statistics/order-statistics"
+    "pages/order-statistics/order-statistics",
+    "pages/gzh-medias/gzh-medias",
+    "pages/gzh-media-detail/gzh-media-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
