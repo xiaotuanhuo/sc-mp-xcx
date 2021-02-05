@@ -1,4 +1,7 @@
 {
   "navigationBarTitleText":"热点关注",
-  "usingComponents": {}
+  "usingComponents": {
+    "mp-loading": "weui-miniprogram/loading/loading"
+  },
+  "onReachBottomDistance":300
 }

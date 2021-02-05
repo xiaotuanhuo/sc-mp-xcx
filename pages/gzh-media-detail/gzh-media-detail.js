@@ -1,6 +1,11 @@
 // pages/gzh-media-detail/gzh-media-detail.js
 Page({
-
+  onShareAppMessage() {
+    return {
+      title: app.globalData.shareTitle,
+      path: '/pages/home/home'
+    }
+  },
   /**
    * 页面的初始数据
    */

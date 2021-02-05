@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText":"公司简介"
+  "navigationBarTitleText":"公司简介",
+  "usingComponents": {
+    "wux-divider": "/common/lib/wux-weapp/lib/divider/index"
+  }
 }

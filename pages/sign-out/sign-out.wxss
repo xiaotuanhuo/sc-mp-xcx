@@ -1,7 +1,4 @@
-.sign-out-btn {
-  background-color: #07c160;
-  color: #ffffff;
-}
+@import '/common/common.wxss'; 
 
 .sign-out-btn-view {
   margin-top: 200rpx;

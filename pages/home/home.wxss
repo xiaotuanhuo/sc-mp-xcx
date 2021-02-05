@@ -14,7 +14,6 @@ swiper {
 .focus {
   padding: 20rpx;
   margin-bottom: 30rpx;
-  background-color: #ffffff;
 }
 .focus-title {
   width: 100%;
@@ -29,4 +28,7 @@ swiper {
   float: right;
   font-size: 14px;
   color: #C1B7B1;
+}
+.wux-divider__text {
+  color: #D8D0CD;
 }

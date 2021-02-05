@@ -3,6 +3,8 @@ var log = require('utils/log.js')
 //app.js
 App({
   onLaunch: function () {
+    //首次进入时更新麻醉方法
+    wx.setStorageSync("anesthetics", null);
     //自动登录
     var _this = this;
     wx.login({
@@ -41,6 +43,7 @@ App({
         let clientWidth = res.windowWidth;
         // 算出比例
         let ratio = 750 / clientWidth;
+        console.log("ratio="+ratio);
         // 算出高度(单位rpx)
         let height = clientHeight * ratio;
         // 设置高度
@@ -52,9 +55,10 @@ App({
     userInfo: null,
     // theme: wx.getSystemInfoSync().theme,
     theme: 'white',
-    baseUrl:'http://127.0.0.1:9080/',
+    // baseUrl:'http://127.0.0.1:9080/',
     // baseUrl:'https://fw1.sucheng-group.com/',
-    // baseUrl:'https://fw1.sucheng-group.com:8443/',
+    baseUrl:'https://fw1.sucheng-group.com:8443/',
     height:null,
+    shareTitle: '夙呈'
   }
 })

@@ -20,6 +20,7 @@
       <template is="gzhMediaTemplate" data="{{...media}}"/>
     </block>
   </view>
+  <wux-divider position="center" text="随时随地  一生相伴" />
   <!-- <view class="textView">
     <text space="nbsp" user-select="{{true}}">
         夙呈医生集团成立于2017年7月，是全国最早的麻醉医生集团，专注于泛麻醉领域。夙呈历经脚踏实地的发展与积累，无论是线上、线下，都在不断扩大服务的范围和能力。

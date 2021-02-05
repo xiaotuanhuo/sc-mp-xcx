@@ -1,11 +1,7 @@
 @import '/common/common.wxss';
 
-.weui-form-preview {
-  margin-bottom: 10px;
-}
-
 .page_title{
-  height: 85rpx;
+  height: 45rpx;
 }
 
 .filterSwitch {

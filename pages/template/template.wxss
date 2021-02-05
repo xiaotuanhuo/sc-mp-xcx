@@ -10,6 +10,7 @@
 .thumb-pic {
   width: 220rpx;
   height: 180rpx;
+  border-radius: 5%;
 }
 .focus-body-description {
   float: left;

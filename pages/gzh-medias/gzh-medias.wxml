@@ -1,4 +1,8 @@
 <import src="/pages/template/template.wxml"/>
-<block wx:for="{{medias}}"  wx:key="mediaId" wx:for-item="media">
-  <template is="gzhMediaTemplate" data="{{...media}}"/>
-</block>
+<view class="page" data-weui-theme="{{theme}}">
+  <block wx:for="{{medias}}"  wx:key="mediaId" wx:for-item="media">
+    <template is="gzhMediaTemplate" data="{{...media}}"/>
+  </block>
+  <mp-loading type="circle" show="{{show}}"></mp-loading>
+</view>
+

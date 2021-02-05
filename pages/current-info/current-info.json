@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText":"当前详情",
-  "usingComponents": {
-    "ec-canvas": "/common/lib/ec-canvas/ec-canvas"
-  }
-}

@@ -13,11 +13,13 @@
         <view wx:if="{{tab1}}" class='tab1'>
             <block wx:for="{{allOrder.orders}}"  wx:key="documentId" wx:for-item="order">
                 <template is="orderListTemplate" data="{{...order}}"/>
+                <view class="split-line"></view>
             </block>
         </view>
         <view wx:if="{{tab2}}" class='tab2'>
             <block wx:for="{{evaluateOrder.orders}}"  wx:key="documentId" wx:for-item="order">
                 <template is="orderListTemplate" data="{{...order}}"/>
+                <view class="split-line"></view>
             </block>
         </view>
         
@@ -52,7 +54,7 @@
                     </mp-form>
                     
                     <view slot="button">
-                    <button class="weui-btn" type="primary" bindtap="submitForm">搜索</button>
+                    <button class="weui-btn" bindtap="submitForm">搜索</button>
                     </view>
                 </mp-form-page>
             </view>

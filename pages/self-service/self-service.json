@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText":"自助服务",
-  "usingComponents": {
-    "mp-grids": "weui-miniprogram/grids/grids"
-  }
-}
