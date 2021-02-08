@@ -4,10 +4,10 @@
     <mp-form id="loginForm" rules="{{rules}}" models="{{user}}">
       <mp-cells title="" footer="">
         <mp-cell prop="name" title="用户名" ext-class="">
-          <input bindinput="loginFormInputChange" data-field="name" class="weui-input" value="{{user.name}}" placeholder="请输入用户名"/>
+          <input bindinput="loginFormInputChange" data-field="name" class="weui-input" value="{{user.name}}" placeholder="请输入用户名" placeholder-class="placeholderStyle"/>
         </mp-cell>
         <mp-cell prop="pws" title="密码" ext-class="">
-          <input bindinput="loginFormInputChange" password data-field="pws" class="weui-input" value="{{user.pws}}" placeholder="请输入密码"/>
+          <input bindinput="loginFormInputChange" password data-field="pws" class="weui-input" value="{{user.pws}}" placeholder="请输入密码" placeholder-class="placeholderStyle"/>
         </mp-cell>
       </mp-cells>
     </mp-form>

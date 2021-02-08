@@ -3,7 +3,7 @@
   <form>
     <view class="customGroup">
       <view class="customGroupTitle">
-        <mp-icon type="field" icon="mosaic" color="#677DB2" size="{{25}}"></mp-icon>
+        <mp-icon type="field" icon="mosaic" color="#677DB2" size="{{23}}"></mp-icon>
         手术时间
       </view>
       <view class="customItems">
@@ -38,13 +38,13 @@
     
     <view class="customGroup">
       <view class="customGroupTitle">
-        <mp-icon type="field" icon="mosaic" color="#677DB2" size="{{25}}"></mp-icon>
+        <mp-icon type="field" icon="mosaic" color="#677DB2" size="{{23}}"></mp-icon>
         客户信息
       </view>
       <view class="customItems">
         <view class="customItem">
           <label class="customLabel" for="patientName"><text style="color:red">* </text>姓名：</label>
-          <input id="patientName" name="patientName" class="customInput" value="{{order.patientName}}" bindinput="formInputChange" data-field="patientName" placeholder="姓名"/>
+          <input id="patientName" name="patientName" class="customInput" value="{{order.patientName}}" bindinput="formInputChange" data-field="patientName" placeholder="姓名" placeholder-class="placeholderStyle"/>
         </view>
         <view class="customItem">
           <label class="customLabel" for="patientSex"><text style="color:red">* </text>性别：</label>
@@ -61,28 +61,28 @@
         </view>
         <view class="customItem">
           <label class="customLabel" for="patientAge"><text style="color:red">* </text>年龄：</label>
-          <input id="patientAge" name="patientAge" class="customInput" type="number" value="{{order.patientAge}}" bindinput="formInputChange" data-field="patientAge" placeholder="年龄"/>
+          <input id="patientAge" name="patientAge" class="customInput" type="number" value="{{order.patientAge}}" bindinput="formInputChange" data-field="patientAge" placeholder="年龄" placeholder-class="placeholderStyle"/>
         </view>
         <view class="customItem">
           <label class="customLabel" for="patientNum">住院号：</label>
-          <input id="patientNum" name="patientNum" class="customInput" value="{{order.patientNum}}" bindinput="formInputChange" data-field="patientNum" placeholder="住院号"/>
+          <input id="patientNum" name="patientNum" class="customInput" value="{{order.patientNum}}" bindinput="formInputChange" data-field="patientNum" placeholder="住院号" placeholder-class="placeholderStyle"/>
         </view>
         <view class="customItem">
           <label class="customLabel" for="patientBednum">病床号：</label>
-          <input id="patientBednum" name="patientBednum" class="customInput" value="{{order.patientBednum}}" bindinput="formInputChange" data-field="patientBednum" placeholder="病床号"/>
+          <input id="patientBednum" name="patientBednum" class="customInput" value="{{order.patientBednum}}" bindinput="formInputChange" data-field="patientBednum" placeholder="病床号" placeholder-class="placeholderStyle"/>
         </view>
       </view>
     </view>
     
     <view class="customGroup">
       <view class="customGroupTitle">
-        <mp-icon type="field" icon="mosaic" color="#677DB2" size="{{25}}"></mp-icon>
+        <mp-icon type="field" icon="mosaic" color="#677DB2" size="{{23}}"></mp-icon>
         手术信息
       </view>
       <view class="customItems">
         <view class="customItem">
           <label class="customLabel" for="documentTitle">诊断：</label>
-          <input id="documentTitle" name="documentTitle" class="customInput" value="{{order.documentTitle}}" bindinput="formInputChange" data-field="documentTitle" placeholder="诊断"/>
+          <input id="documentTitle" name="documentTitle" class="customInput" value="{{order.documentTitle}}" bindinput="formInputChange" data-field="documentTitle" placeholder="诊断" placeholder-class="placeholderStyle"/>
         </view>
         <view class="customItem">
           <label class="customLabel" for="operativeName"><text style="color:red">* </text>手术名称：</label>
@@ -97,11 +97,11 @@
         </view>
         <view class="customItem">
           <label class="customLabel" for="operateUser"><text style="color:red">* </text>手术医生：</label>
-          <input id="operateUser" name="operateUser" class="customInput" value="{{order.operateUser}}" bindinput="formInputChange" data-field="operateUser" placeholder="手术医生"/>
+          <input id="operateUser" name="operateUser" class="customInput" value="{{order.operateUser}}" bindinput="formInputChange" data-field="operateUser" placeholder="手术医生" placeholder-class="placeholderStyle"/>
         </view>
         <view class="customItem">
           <label class="customLabel" for="operateQide">手术助手：</label>
-          <input id="operateQide" name="operateQide" class="customInput" value="{{order.operateQide}}" bindinput="formInputChange" data-field="operateQide" placeholder="手术助手"/>
+          <input id="operateQide" name="operateQide" class="customInput" value="{{order.operateQide}}" bindinput="formInputChange" data-field="operateQide" placeholder="手术助手" placeholder-class="placeholderStyle"/>
         </view>
         <view class="customItem">
           <label class="customLabel" for="anestheticName"><text style="color:red">* </text>麻醉方法：</label>
@@ -118,7 +118,7 @@
         </view>
         <view class="customTextareaItem">
           <label class="customLabel" for="memo">备注：</label>
-          <textarea class="customTextarea" id="memo" name="memo" value="{{order.memo}}" placeholder="备注" bindinput="formInputChange" data-field="memo"></textarea>
+          <textarea class="customTextarea" id="memo" name="memo" value="{{order.memo}}" placeholder="备注" placeholder-class="placeholderStyle" bindinput="formInputChange" data-field="memo"></textarea>
         </view>
       </view>
     </view>

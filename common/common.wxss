@@ -2,16 +2,20 @@
   height: 100%;
   display: block;
   justify-content: center;
+  background-color: #ffffff;
+  color: var(--weui-FG-0);
+  font-size: 15px;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
 }
 
-.page {
+/* .page {
   min-height: 100%;
-  /* background-color: var(--weui-BG-1); */
+  background-color: #ffffff;
   color: var(--weui-FG-0);
   font-size: 16px;
   font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
   max-width: 600px;
-}
+} */
 .split-line {
   height: 30rpx;
   width: 100%;
@@ -20,4 +24,12 @@
 button {
   background-color: #677DB2;
   color: #ffffff;
+}
+textarea {
+  background-color: #ffffff;
+  color: var(--weui-FG-0);
+}
+.placeholderStyle {
+  color:#9F9592;
+  font-size: 15px;
 }

@@ -71,7 +71,6 @@
 .customTextarea {
   height: 50px;
   margin-top: 3px;
-  background-color: #ffffff;
 }
 .customPicker {
   width: 430rpx;

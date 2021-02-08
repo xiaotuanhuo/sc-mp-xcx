@@ -3,19 +3,18 @@
   height: 200rpx;
   width: 90%;
   border: 1px solid #b3afaf;
+  border-radius: 4px;
+  padding: 10rpx;
   margin: auto;
-  color: black;
 }
 
 .evaluateView {
-  background-color: #fff;
   padding-top: 30rpx;
   padding-bottom: 30rpx;
   margin: 40rpx auto;
 }
 
 .evaluateStar{
-  background-color: #fff;
   padding: 35rpx;
 }
 

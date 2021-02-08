@@ -1,3 +1,5 @@
+@import '/common/common.wxss';
+
 .order-kinds {
   background-color: #D9D9D9;
   padding: 20rpx;
