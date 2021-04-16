@@ -12,13 +12,13 @@
         <view class="split-line"></view>
         <view wx:if="{{tab1}}" class='tab1'>
             <block wx:for="{{allOrder.orders}}"  wx:key="documentId" wx:for-item="order">
-                <template is="orderListTemplate" data="{{...order}}"/>
+                <template is="orderListTemplate2" data="{{...order}}"/>
                 <view class="split-line"></view>
             </block>
         </view>
         <view wx:if="{{tab2}}" class='tab2'>
             <block wx:for="{{evaluateOrder.orders}}"  wx:key="documentId" wx:for-item="order">
-                <template is="orderListTemplate" data="{{...order}}"/>
+                <template is="orderListTemplate2" data="{{...order}}"/>
                 <view class="split-line"></view>
             </block>
         </view>

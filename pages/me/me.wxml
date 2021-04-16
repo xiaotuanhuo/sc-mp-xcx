@@ -30,8 +30,8 @@
       <view class="weui-cell__bd">订单发布</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
     </view> -->
-    <view class="weui-flex">
-      <view class="weui-flex__item">
+    <view class="weui-flex custom-flex">
+      <view class="weui-flex__item custom-item">
         <view class="icon">
           <view class="placeholder" bindtap="orderRelease">
             <mp-icon type="field" icon="pencil" color="#6479AF" size="{{25}}"></mp-icon>
@@ -39,7 +39,7 @@
         </view>
         <view class="text">订单发布</view>
       </view>
-      <view class="weui-flex__item">
+      <view class="weui-flex__item custom-item">
         <view class="icon">
           <view class="placeholder" bindtap="myOrders">
             <mp-icon type="field" icon="note" color="#6479AF" size="{{25}}"></mp-icon>
@@ -47,7 +47,7 @@
         </view>
         <view class="text">我的订单</view>
       </view>
-      <view class="weui-flex__item">
+      <view class="weui-flex__item custom-item">
         <view class="icon">
           <view class="placeholder" bindtap="myEvaluate">
             <mp-icon type="field" icon="like" color="#6479AF" size="{{25}}"></mp-icon>
@@ -56,5 +56,11 @@
         <view class="text">评 价</view>
       </view>
     </view>
+
+    <import src="/pages/template/template.wxml"/>
+    <block wx:for="{{orders}}"  wx:key="documentId" wx:for-item="order">
+      <view class="split-line"></view>
+      <template is="orderListTemplate2" data="{{...order}}"/>
+    </block>
   </view>
 </view>

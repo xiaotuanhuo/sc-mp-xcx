@@ -2,6 +2,83 @@
 var log = require('../../utils/log.js') 
 //获取应用实例
 const app = getApp()
+
+const evaluateText = ['差','一般','满意'];
+const evaluateColor = ['#B5B5B5','#FFAE00'];
+const evaluateLabel = {
+  fftd: [
+    {
+      text:'服务态度好',
+      value:'1'
+    },{
+      text:'服务态度一般',
+      value:'2'
+    },{
+      text:'服务态度差',
+      value:'3'
+    }
+  ],
+  phd: [
+    {
+      text:'配合度高',
+      value:'1'
+    },{
+      text:'配合度一般',
+      value:'2'
+    },{
+      text:'配合度较差',
+      value:'3'
+    }
+  ],
+  sqpg: [
+    {
+      text:'术前评估及时',
+      value:'1'
+    },{
+      text:'术前评估有遗漏',
+      value:'2'
+    },{
+      text:'术前评估不及时',
+      value:'3'
+    }
+  ],
+  szgl: [
+    {
+      text:'术中管理平稳',
+      value:'1'
+    },{
+      text:'术中管理欠妥',
+      value:'2'
+    },{
+      text:'术中管理较差',
+      value:'3'
+    }
+  ],
+  shbfz: [
+    {
+      text:'术后无并发症',
+      value:'1'
+    },{
+      text:'术后并发症少',
+      value:'2'
+    },{
+      text:'术后并发症较多',
+      value:'3'
+    }
+  ],
+  shtt: [
+    {
+      text:'术后无疼痛',
+      value:'1'
+    },{
+      text:'术后疼痛能忍受',
+      value:'2'
+    },{
+      text:'术后疼痛剧烈',
+      value:'3'
+    }
+  ],
+};
 Page({
   onShareAppMessage() {
     return {
@@ -13,21 +90,157 @@ Page({
     theme: app.globalData.theme,
     isDisabled: false,
     documentId:'',
-    evaluateStar: 5,
-    evaluateText:''
+    evaluateScoreText:evaluateText[2],
+    evaluateScore: 4,
+    evaluateRemark: '',
+    fftd: {
+      text: evaluateLabel.fftd[0].text,
+      value: '0',
+      color: evaluateColor[0]
+    },
+    phd: {
+      text: evaluateLabel.phd[0].text,
+      value: '0',
+      color: evaluateColor[0]
+    },
+    sqpg: {
+      text: evaluateLabel.sqpg[0].text,
+      value: '0',
+      color: evaluateColor[0]
+    },
+    szgl: {
+      text: evaluateLabel.szgl[0].text,
+      value: '0',
+      color: evaluateColor[0]
+    },
+    shbfz: {
+      text: evaluateLabel.shbfz[0].text,
+      value: '0',
+      color: evaluateColor[0]
+    },
+    shtt: {
+      text: evaluateLabel.shtt[0].text,
+      value: '0',
+      color: evaluateColor[0]
+    },
   },
 
   evaluateTextChange(e) {
     this.setData({
-      evaluateText: e.detail.value
+      evaluateRemark: e.detail.value
     });
-    console.log("evaluateText:"+e.detail.value)
+    console.log("evaluateRemark:"+e.detail.value)
   },
   onChange(e) {
-      this.setData({
-        evaluateStar: e.detail.value,
-      })
       console.log("change:"+e.detail.value)
+
+      var score = e.detail.value;
+      if(score < 2){
+        this.setData({
+          evaluateScore: score,
+          evaluateScoreText: evaluateText[0],
+          fftd: {
+            text: evaluateLabel.fftd[2].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          phd: {
+            text: evaluateLabel.phd[2].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          sqpg: {
+            text: evaluateLabel.sqpg[2].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          szgl: {
+            text: evaluateLabel.szgl[2].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          shbfz: {
+            text: evaluateLabel.shbfz[2].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          shtt: {
+            text: evaluateLabel.shtt[2].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+        })
+      }else if(score >= 2 && score <4){
+        this.setData({
+          evaluateScore: score,
+          evaluateScoreText: evaluateText[1],
+          fftd: {
+            text: evaluateLabel.fftd[1].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          phd: {
+            text: evaluateLabel.phd[1].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          sqpg: {
+            text: evaluateLabel.sqpg[1].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          szgl: {
+            text: evaluateLabel.szgl[1].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          shbfz: {
+            text: evaluateLabel.shbfz[1].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          shtt: {
+            text: evaluateLabel.shtt[1].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+        })
+      }else {
+        this.setData({
+          evaluateScore: score,
+          evaluateScoreText: evaluateText[2],
+          fftd: {
+            text: evaluateLabel.fftd[0].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          phd: {
+            text: evaluateLabel.phd[0].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          sqpg: {
+            text: evaluateLabel.sqpg[0].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          szgl: {
+            text: evaluateLabel.szgl[0].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          shbfz: {
+            text: evaluateLabel.shbfz[0].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+          shtt: {
+            text: evaluateLabel.shtt[0].text,
+            value: '0',
+            color: evaluateColor[0]
+          },
+        })
+      }
   },
   onLoad(options){
     this.setData({
@@ -37,7 +250,7 @@ Page({
 
     var _this = this;
     wx.request({
-      url: app.globalData.baseUrl+'xcx/getDocDetail',
+      url: app.globalData.baseUrl+'xcx/getEvaluate',
       method: 'GET',
       data: {
         documentId: _this.data.documentId
@@ -49,17 +262,74 @@ Page({
       success (res) {
         console.log(res.data);
         if(res.data.code == 0){
-          if(res.data.data.hospitalEvaluate != -1){
+          if(res.data.data != null){
+            var text = '';
+            var fftd = '';
+            var phd = '';
+            var sqpg = '';
+            var szgl = '';
+            var shbfz = '';
+            var shtt = '';
+            if(res.data.data.score < 2){
+              text = evaluateText[0];
+              fftd = evaluateLabel.fftd[2].text;
+              phd = evaluateLabel.phd[2].text;
+              sqpg = evaluateLabel.sqpg[2].text;
+              szgl = evaluateLabel.szgl[2].text;
+              shbfz = evaluateLabel.shbfz[2].text;
+              shtt = evaluateLabel.shtt[2].text;
+            }else if(res.data.data.score >=2 && res.data.data.score < 4){
+              text = evaluateText[1];
+              fftd = evaluateLabel.fftd[1].text;
+              phd = evaluateLabel.phd[1].text;
+              sqpg = evaluateLabel.sqpg[1].text;
+              szgl = evaluateLabel.szgl[1].text;
+              shbfz = evaluateLabel.shbfz[1].text;
+              shtt = evaluateLabel.shtt[1].text;
+            }else{
+              text = evaluateText[2];
+              fftd = evaluateLabel.fftd[0].text;
+              phd = evaluateLabel.phd[0].text;
+              sqpg = evaluateLabel.sqpg[0].text;
+              szgl = evaluateLabel.szgl[0].text;
+              shbfz = evaluateLabel.shbfz[0].text;
+              shtt = evaluateLabel.shtt[0].text;
+            }
             _this.setData({
               isDisabled: true,
-              evaluateStar: res.data.data.hospitalEvaluate,
-              evaluateText: res.data.data.hospitalEvaluateMemo
-            });
-          }else{
-            _this.setData({
-              isDisabled: false,
-              evaluateStar: res.data.data.hospitalEvaluate,
-              evaluateText: res.data.data.hospitalEvaluateMemo
+              evaluateScoreText:text,
+              evaluateScore: res.data.data.score,
+              evaluateRemark: res.data.data.remark,
+              fftd: {
+                text: fftd,
+                value: res.data.data.fftd,
+                color: res.data.data.fftd!='0'?evaluateColor[1]:evaluateColor[0]
+              },
+              phd: {
+                text: phd,
+                value: res.data.data.phd,
+                color: res.data.data.phd!='0'?evaluateColor[1]:evaluateColor[0]
+              },
+              sqpg: {
+                text: sqpg,
+                value: res.data.data.sqpg,
+                color: res.data.data.sqpg!='0'?evaluateColor[1]:evaluateColor[0]
+              },
+              szgl: {
+                text: szgl,
+                value: res.data.data.szgl,
+                color: res.data.data.szgl!='0'?evaluateColor[1]:evaluateColor[0]
+              },
+              shbfz: {
+                text: shbfz,
+                value: res.data.data.shbfz,
+                color: res.data.data.shbfz!='0'?evaluateColor[1]:evaluateColor[0]
+              },
+              shtt: {
+                text: shtt,
+                value: res.data.data.shtt,
+                color: res.data.data.shtt!='0'?evaluateColor[1]:evaluateColor[0]
+              },
             });
           }
           
@@ -87,7 +357,17 @@ Page({
     wx.request({
       url: app.globalData.baseUrl+'xcx/orderEvaluate',
       method: 'POST',
-      data: _this.data,
+      data: {
+        documentId: _this.data.documentId,
+        score: _this.data.evaluateScore,
+        remark: _this.data.evaluateRemark,
+        fftd: _this.data.fftd.value,
+        phd: _this.data.phd.value,
+        sqpg: _this.data.sqpg.value,
+        szgl: _this.data.szgl.value,
+        shbfz: _this.data.shbfz.value,
+        shtt: _this.data.shtt.value,
+      },
       header: {
         'content-type': 'application/json' // 默认值
       },
@@ -96,6 +376,9 @@ Page({
         console.log(res.data);
         if(res.data.code == 0){
           log.info("订单评价成功（"+_this.data.documentId+"）");
+          _this.setData({
+            isDisabled: true
+          });
           wx.showModal({
             title: '温馨提示',
             content: res.data.msg,
@@ -119,5 +402,228 @@ Page({
         wx.hideLoading();
       }
     })
-  }
+  },
+  fftdSelect:function(){
+    if(this.data.fftd.value == '0'){
+      if(this.data.evaluateScore < 2){
+        this.setData({
+          fftd: {
+            value: evaluateLabel.fftd[2].value,
+            text: this.data.fftd.text,
+            color: evaluateColor[1]
+          }
+        })
+      }else if(this.data.evaluateScore >=2 && this.data.evaluateScore < 4){
+        this.setData({
+          fftd: {
+            value: evaluateLabel.fftd[1].value,
+            text: this.data.fftd.text,
+            color: evaluateColor[1]
+          }
+        })
+      }else {
+        this.setData({
+          fftd: {
+            value: evaluateLabel.fftd[0].value,
+            text: this.data.fftd.text,
+            color: evaluateColor[1]
+          }
+        })
+      }
+    }else{
+      this.setData({
+        fftd: {
+          value: '0',
+          text: this.data.fftd.text,
+          color: evaluateColor[0]
+        }
+      })
+    }
+    console.log(this.data.fftd.value);
+  },
+  phdSelect:function(){
+    if(this.data.phd.value == '0'){
+      if(this.data.evaluateScore < 2){
+        this.setData({
+          phd: {
+            value: evaluateLabel.phd[2].value,
+            text: this.data.phd.text,
+            color: evaluateColor[1]
+          }
+        })
+      }else if(this.data.evaluateScore >=2 && this.data.evaluateScore < 4){
+        this.setData({
+          phd: {
+            value: evaluateLabel.phd[1].value,
+            text: this.data.phd.text,
+            color: evaluateColor[1]
+          }
+        })
+      }else {
+        this.setData({
+          phd: {
+            value: evaluateLabel.phd[0].value,
+            text: this.data.phd.text,
+            color: evaluateColor[1]
+          }
+        })
+      }
+    }else{
+      this.setData({
+        phd: {
+          value: '0',
+          text: this.data.phd.text,
+          color: evaluateColor[0]
+        }
+      })
+    }
+  },
+  sqpgSelect:function(){
+    if(this.data.sqpg.value == '0'){
+      if(this.data.evaluateScore < 2){
+        this.setData({
+          sqpg: {
+            value: evaluateLabel.sqpg[2].value,
+            text: this.data.sqpg.text,
+            color: evaluateColor[1]
+          }
+        })
+      }else if(this.data.evaluateScore >=2 && this.data.evaluateScore < 4){
+        this.setData({
+          sqpg: {
+            value: evaluateLabel.sqpg[1].value,
+            text: this.data.sqpg.text,
+            color: evaluateColor[1]
+          }
+        })
+      }else {
+        this.setData({
+          sqpg: {
+            value: evaluateLabel.sqpg[0].value,
+            text: this.data.sqpg.text,
+            color: evaluateColor[1]
+          }
+        })
+      }
+    }else{
+      this.setData({
+        sqpg: {
+          value: '0',
+          text: this.data.sqpg.text,
+          color: evaluateColor[0]
+        }
+      })
+    }
+  },
+  szglSelect:function(){
+    if(this.data.szgl.value == '0'){
+      if(this.data.evaluateScore < 2){
+        this.setData({
+          szgl: {
+            value: evaluateLabel.szgl[2].value,
+            text: this.data.szgl.text,
+            color: evaluateColor[1]
+          }
+        })
+      }else if(this.data.evaluateScore >=2 && this.data.evaluateScore < 4){
+        this.setData({
+          szgl: {
+            value: evaluateLabel.szgl[1].value,
+            text: this.data.szgl.text,
+            color: evaluateColor[1]
+          }
+        })
+      }else {
+        this.setData({
+          szgl: {
+            value: evaluateLabel.szgl[0].value,
+            text: this.data.szgl.text,
+            color: evaluateColor[1]
+          }
+        })
+      }
+    }else{
+      this.setData({
+        szgl: {
+          value: '0',
+          text: this.data.szgl.text,
+          color: evaluateColor[0]
+        }
+      })
+    }
+  },
+  shbfzSelect:function(){
+    if(this.data.shbfz.value == '0'){
+      if(this.data.evaluateScore < 2){
+        this.setData({
+          shbfz: {
+            value: evaluateLabel.shbfz[2].value,
+            text: this.data.shbfz.text,
+            color: evaluateColor[1]
+          }
+        })
+      }else if(this.data.evaluateScore >=2 && this.data.evaluateScore < 4){
+        this.setData({
+          shbfz: {
+            value: evaluateLabel.shbfz[1].value,
+            text: this.data.shbfz.text,
+            color: evaluateColor[1]
+          }
+        })
+      }else {
+        this.setData({
+          shbfz: {
+            value: evaluateLabel.shbfz[0].value,
+            text: this.data.shbfz.text,
+            color: evaluateColor[1]
+          }
+        })
+      }
+    }else{
+      this.setData({
+        shbfz: {
+          value: '0',
+          text: this.data.shbfz.text,
+          color: evaluateColor[0]
+        }
+      })
+    }
+  },
+  shttSelect:function(){
+    if(this.data.shtt.value == '0'){
+      if(this.data.evaluateScore < 2){
+        this.setData({
+          shtt: {
+            value: evaluateLabel.shtt[2].value,
+            text: this.data.shtt.text,
+            color: evaluateColor[1]
+          }
+        })
+      }else if(this.data.evaluateScore >=2 && this.data.evaluateScore < 4){
+        this.setData({
+          shtt: {
+            value: evaluateLabel.shtt[1].value,
+            text: this.data.shtt.text,
+            color: evaluateColor[1]
+          }
+        })
+      }else {
+        this.setData({
+          shtt: {
+            value: evaluateLabel.shtt[0].value,
+            text: this.data.shtt.text,
+            color: evaluateColor[1]
+          }
+        })
+      }
+    }else{
+      this.setData({
+        shtt: {
+          value: '0',
+          text: this.data.shtt.text,
+          color: evaluateColor[0]
+        }
+      })
+    }
+  },
 })

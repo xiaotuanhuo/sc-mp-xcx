@@ -1,10 +1,45 @@
 <view class="page">
-  <view class="evaluateStar">
-    手术满意度：
-  <wux-rater slot="footer" allow-half allow-clear allow-touch-move controlled value="{{ evaluateStar }}" bind:change="onChange" star="♡" />
+  <view class="evaluatePage">
+    <view class="evaluateLogo">
+      <image style="width:200rpx;height:228rpx;" src="/images/evaluate-logo.png"/>
+    </view>
+    <wux-divider position="center" text="匿名评价医生" />
+    <view class="evaluateScore">
+      <wux-rater slot="footer" fontSize="{{35}}" allow-half allow-clear allow-touch-move controlled value="{{ evaluateScore }}" bind:change="onChange" star="★" />
+      <view class="evaluateScoreText">{{evaluateScoreText}}</view>
+    </view>
+
+    <view class="evaluateLabel">
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          <view class="labelText" style="border-color:{{fftd.color}};color:{{fftd.color}}" bindtap="fftdSelect">{{fftd.text}}</view>
+        </view>
+        <view class="weui-flex__item">
+          <view class="labelText" style="float:right;border-color:{{phd.color}};color:{{phd.color}}" bindtap="phdSelect">{{phd.text}}</view>
+        </view>
+      </view>
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          <view class="labelText" style="border-color:{{sqpg.color}};color:{{sqpg.color}}" bindtap="sqpgSelect">{{sqpg.text}}</view>
+        </view>
+        <view class="weui-flex__item">
+          <view class="labelText" style="float:right;border-color:{{szgl.color}};color:{{szgl.color}}" bindtap="szglSelect">{{szgl.text}}</view>
+        </view>
+      </view>
+      <view class="weui-flex">
+        <view class="weui-flex__item">
+          <view class="labelText" style="border-color:{{shbfz.color}};color:{{shbfz.color}}" bindtap="shbfzSelect">{{shbfz.text}}</view>
+        </view>
+        <view class="weui-flex__item">
+          <view class="labelText" style="float:right;border-color:{{shtt.color}};color:{{shtt.color}}" bindtap="shttSelect">{{shtt.text}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="evaluateView">
+      <textarea name="evaluateRemark" class="evaluateRemark" value="{{evaluateRemark}}" placeholder="您如果有其它意见和建议，请放心填写" placeholder-class="evaluateRemarkPlaceholder" bindinput="evaluateTextChange"/>
+    </view>
+
+    <button class="evaluateSubmit" bindtap="evaluateSubmit" disabled="{{isDisabled}}">提交</button>
   </view>
-  <view class="evaluateView">
-    <textarea name="evaluateText" class="evaluate" value="{{evaluateText}}" placeholder="请输入您的评价..." placeholder-class="placeholderStyle" bindinput="evaluateTextChange"/>
-  </view>
-  <button class="evaluateSubmit" bindtap="evaluateSubmit" disabled="{{isDisabled}}">提交</button>
 </view>

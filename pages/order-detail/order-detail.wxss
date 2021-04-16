@@ -1,6 +1,18 @@
 .weui-form-preview__hd {
   position: relative;
-  padding: 10px;
+  padding: 5px;
   text-align: right;
   line-height: 2em;
+}
+.weui-form-preview__item {
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.weui-form-preview::after, .weui-form-preview::before {
+  border: 0px;
+}
+.weui-form-preview__hd::after {
+  border: 0px;
 }

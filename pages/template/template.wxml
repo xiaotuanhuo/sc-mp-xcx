@@ -1,4 +1,60 @@
 <wxs src="../../utils/util.wxs" module="tools" />
+<!--订单列表template2-->
+<template name="orderListTemplate2">
+  <view class="temlate2" data-id="{{documentId}}" bindtap="toOrderDetail">
+    <view class="weui-flex item" style="border-bottom:1px solid #eee;">
+      <view class="weui-flex__item">
+        <view style="text-align:left;font-weight: bolder;font-size:12px;">客户：{{patientName}}</view>
+      </view>
+      <view style="width:30%;">
+        <view catch:tap="evaluate" data-id="{{documentId}}" style="text-align:right;color:#586FAA;padding-left:20rpx;padding-right:20rpx;" wx:if="{{documentState=='已完成'}}">
+            评价
+        </view>
+      </view>
+    </view>
+    <view class="weui-flex item" style="border-bottom:1px solid #eee;">
+      <view class="weui-flex__item">
+        <view style="text-align:left;font-weight:bold;">
+          <image style="width:12px;height:12px;" src="/images/operateLogo.png"/>
+          {{tools.cutstr(operativeName,20)}}
+        </view>
+      </view>
+      <view>
+        <view style="text-align:right;font-weight:bold;background-color:#ffd400;color:#fff;">
+          <text style="margin-left:20rpx;margin-right:20rpx;">{{documentState}}</text></view>
+      </view>
+    </view>
+    <view class="weui-flex item" style="border-bottom:1px solid #eee;">
+      <view style="border-right:1px solid #eee;width:15%;">
+        <view style="text-align:center;font-weight:bold;" wx:if="{{patientSex != null && patientSex == 1}}">男</view>
+        <view style="text-align:center;font-weight:bold;" wx:if="{{patientSex != null && patientSex == 0}}">女</view>
+        <view style="text-align:center;color:#C3C3C3;">性别</view>
+      </view>
+      <view style="border-right:1px solid #eee;width:15%;">
+        <view style="text-align:center;font-weight:bold;">{{patientAge}}</view>
+        <view style="text-align:center;color:#C3C3C3;">年龄</view>
+      </view>
+      <view class="weui-flex__item" style="border-right:1px solid #eee;width:35%;">
+        <view style="text-align:center;font-weight:bold;">{{operateStartTime}}</view>
+        <view style="text-align:center;color:#C3C3C3;">手术时间</view>
+      </view>
+      <view class="weui-flex__item" style="width:35%;">
+        <view style="text-align:center;font-weight:bold;">{{tools.cutstr(anestheticName,7)}}</view>
+        <view style="text-align:center;color:#C3C3C3;">麻醉方法</view>
+      </view>
+    </view>
+    <view class="weui-flex item">
+      <view class="weui-flex__item">
+        <view style="text-align:left;">手术医生：{{operateUser}}</view>
+      </view>
+      <view>
+        <view style="text-align:right;background-color:#508CFC;color:#fff">
+          <text style="margin-left:20rpx;margin-right:20rpx;">麻醉方法：{{qaUserName}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
 <!--订单列表template-->
 <template name="orderListTemplate">
   <view class="weui-form-preview">
@@ -23,7 +79,7 @@
       </view>
     </view>
     <view class="weui-form-preview__ft">
-      <navigator url="/pages/evaluate/evaluate?documentId={{documentId}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" wx:if="{{documentState=='已完成'}}">评价</navigator>
+      <navigator url="/pages/evaluate/eevaluat?documentId={{documentId}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" wx:if="{{documentState=='已完成'}}">评价</navigator>
       <navigator url="/pages/order-detail/order-detail?documentId={{documentId}}" class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active">详情</navigator>
     </view>
   </view>

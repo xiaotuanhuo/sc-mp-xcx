@@ -27,3 +27,14 @@
   color: #C1B7B1;
   font-size: 14px;
 }
+.temlate2 {
+  margin-left:15rpx;
+  margin-right:15rpx;
+  padding:10rpx;
+  border:1px solid #eee;
+  border-radius: 5px;
+  font-size: 11px;
+}
+.item {
+  padding: 8rpx 0rpx;
+}

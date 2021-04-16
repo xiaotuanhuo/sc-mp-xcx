@@ -1,5 +1,5 @@
 @import '/common/common.wxss';
-
+@import '/pages/template/template.wxss';
 .mePageHeader {
   /* padding-top: 20px; */
   color: black;
@@ -29,7 +29,7 @@
   /* margin-top: 40rpx; */
   background-color: #ffffff;
 }
-.weui-flex {
+.custom-flex {
   height: 220rpx;
   width: 100%;
   background-color: var(--weui-BG-0);
@@ -43,7 +43,7 @@
   align-items: center;
   justify-content: center;
 }
-.weui-flex__item {
+.custom-item {
   height: 220rpx;
   width: 100%;
   text-align: center;

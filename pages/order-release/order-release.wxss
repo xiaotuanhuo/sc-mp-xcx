@@ -85,6 +85,38 @@
 .customPickerIcon {
   width: 10%;
 }
-.customButton {
-  margin-bottom: 80rpx;
+.page {
+  padding-bottom: 80rpx;
+}
+.twoCustomItemLeft {
+  display: flex;
+  align-items: center;
+  border: 1px solid #D7CDCB;
+  border-radius: 5%;
+  margin: 30rpx 0rpx;
+  height: 32px;
+  padding: 0px 5px;
+  width: 45%;
+  float: left;
+}
+.twoCustomItemRight {
+  display: flex;
+  align-items: center;
+  border: 1px solid #D7CDCB;
+  border-radius: 5%;
+  margin: 30rpx 0rpx;
+  height: 32px;
+  padding: 0px 5px;
+  width: 45%;
+  float: right;
+}
+.twoCustomLabel {
+  text-align: left;
+  width: 160rpx;
+}
+.twoCustomPicker {
+  width: 180rpx;
+}
+.twoCustomInput {
+  width: 180rpx;
 }

@@ -163,7 +163,7 @@ var weekOption = {
     xAxis: [
         {
             type: 'category',
-            data: ['一', '二', '三', '四', '五', '六', '日'],
+            // data: ['一', '二', '三', '四', '五', '六', '日'],
             axisLine: {
               show: false
             },
@@ -190,20 +190,33 @@ var weekOption = {
             name: '周手术量',
             type: 'bar',
             barWidth: '50%',
-            data: [
-              ['一',0], 
-              ['三',0], 
-              ['二',0], 
-              ['五',0], 
-              ['四',0], 
-              ['六',0], 
-              ['日',0]],
+            // data: [
+            //   ['一',0], 
+            //   ['三',0], 
+            //   ['二',0], 
+            //   ['五',0], 
+            //   ['四',0], 
+            //   ['六',0], 
+            //   ['日',0]],
             label: {
               show: true,
               position: "outside"
             }
         }
-    ]
+    ],
+    dataset: {
+      dimensions: ['name','value'],
+      source: [
+        {name: '周一', value: 0},
+        {name: '周二', value: 0},
+        {name: '周三', value: 0},
+        {name: '周四', value: 0},
+        {name: '周五', value: 0},
+        {name: '周六', value: 0},
+        {name: '周日', value: 0},
+        {name: '8月', value: 0}
+      ]
+    }
 };
 
 let weekChart = null;
@@ -566,7 +579,7 @@ Page({
               });
 
               //周手术量
-              weekOption.series[0].data = res.data.data.weekSsl;
+              weekOption.dataset.source = res.data.data.weekSsl;
               weekChart.clear();
               weekChart.setOption(weekOption);
               

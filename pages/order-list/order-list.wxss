@@ -1,9 +1,9 @@
 @import '/common/common.wxss';
+@import '/pages/template/template.wxss';
 
 .page_title{
   height: 45rpx;
 }
-
 .filterSwitch {
   border: 2px solid #07c160;
   width: 100rpx;
@@ -20,7 +20,6 @@
   right: 2%;
   z-index:10;
 }
-
 .show{
   display: block;
  }

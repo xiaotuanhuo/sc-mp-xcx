@@ -32,6 +32,7 @@ Page({
       patientBednum: "",
       documentTitle: "",
       operateUser: "",
+      operateUser2: "",
       operateQide: "",
       anestheticId: "",
       anestheticName: "",
@@ -173,9 +174,9 @@ Page({
       })
       return;
     }
-    if(this.data.order.operateUser == null || this.data.order.operateUser == ''){
+    if(this.data.order.documentTitle == null || this.data.order.documentTitle == ''){
       this.setData({
-        error: '手术医生不能为空'
+        error: '诊断不能为空'
       })
       return;
     }
@@ -205,7 +206,7 @@ Page({
         patientNum: _this.data.order.patientNum,
         patientBednum: _this.data.order.patientBednum,
         documentTitle: _this.data.order.documentTitle,
-        operateUser: _this.data.order.operateUser,
+        operateUser: _this.data.order.operateUser+";"+_this.data.order.operateUser2,
         operateQide: _this.data.order.operateQide,
         anestheticId: _this.data.order.anestheticId,
         anestheticName: _this.data.order.anestheticName,
@@ -242,6 +243,7 @@ Page({
                     patientBednum: "",
                     documentTitle: "",
                     operateUser: "",
+                    operateUser2: "",
                     operateQide: "",
                     anestheticId: _this.data.anesthetics[0].anestheticId,
                     anestheticName: "",

@@ -1,5 +1,6 @@
 // 引用log.js日志文件
 var log = require('../../utils/log.js') 
+
 //获取应用实例
 const app = getApp()
 Page({
@@ -28,15 +29,7 @@ Page({
     allOrder: {
       page: 1,
       sumPage: 1,
-      orders:[
-        // {
-        //   documentId: '09rrhMgff6xCyxAs4OX',
-        //   patientName: '张珊',
-        //   operativeName: '下巴假体术',
-        //   operateStartTime: '2020-11-20 10:04',
-        //   documentState: '已完成'
-        // }
-      ],
+      orders:[],
     },
     evaluateOrder: {
       page: 1,
@@ -395,5 +388,17 @@ Page({
   },
   onHide:function(){
     log.info("离开“订单列表”");
+  },
+  evaluate:function(event){
+    console.log("评价。。。。。。。。。。。。。。");
+    wx.navigateTo({
+      url: '/pages/evaluate/evaluate?documentId='+event.currentTarget.dataset.id
+    })
+  },
+  toOrderDetail:function(event){
+    console.log("明细。。。。。。。。。。。。。。");
+    wx.navigateTo({
+      url: '/pages/order-detail/order-detail?documentId='+event.currentTarget.dataset.id
+    })
   }
 })
