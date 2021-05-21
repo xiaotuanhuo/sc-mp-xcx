@@ -3,6 +3,7 @@
   "usingComponents": {
     "ec-canvas": "/common/lib/ec-canvas/ec-canvas",
     "i-tabs": "/common/lib/iview-weapp/tabs/index",
-    "i-tab": "/common/lib/iview-weapp/tab/index"
+    "i-tab": "/common/lib/iview-weapp/tab/index",
+    "mp-icon": "weui-miniprogram/icon/icon"
   }
 }

@@ -213,8 +213,7 @@ var weekOption = {
         {name: '周四', value: 0},
         {name: '周五', value: 0},
         {name: '周六', value: 0},
-        {name: '周日', value: 0},
-        {name: '8月', value: 0}
+        {name: '周日', value: 0}
       ]
     }
 };
@@ -455,7 +454,13 @@ Page({
     statisticsCurrent: 'statisticsTab1',
     statisticsTab1: true,
     statisticsTab2: false,
-    statisticsTab3: false
+    statisticsTab3: false,
+    weekPageNum: 0,
+    monthPageNum: 0,
+    yearPageNum: 0,
+    weekTitle: '',
+    monthTitle:'',
+    yearTitle:'',
   },
   handleChange ({ detail }) {
     var index = detail.key
@@ -578,6 +583,11 @@ Page({
                 }
               });
 
+              _this.setData({
+                weekTitle: res.data.data.weekTitle,
+                monthTitle: res.data.data.monthTitle,
+                yearTitle: res.data.data.yearTitle
+              });
               //周手术量
               weekOption.dataset.source = res.data.data.weekSsl;
               weekChart.clear();
@@ -608,103 +618,220 @@ Page({
       })
     }
   },
-  // onReady: function(){
-  //   var _this = this;
-  //   if(app.globalData.userInfo != null){
-  //     wx.showLoading({
-  //       title: '加载中...',
-  //     });
-  //     wx.request({
-  //       url: app.globalData.baseUrl+'xcx/getOrderStatistics',
-  //       method: 'GET',
-  //       data: {
-  //         orgId: app.globalData.userInfo.roleTypeId
-  //       },
-  //       header: {
-  //         'content-type': 'application/json' // 默认值
-  //       },
-  //       dataType:'json',
-  //       success (res) {
-  //         console.log(res.data);
-  //         if(res.data.code == 0){
-  //           log.info("订单统计数据获取成功");
-  //           //今日手术量
-  //           jrsslOption.series[0].data = res.data.data.todaySsl;
-  //           jrsslChart.clear();
-  //           jrsslChart.setOption(jrsslOption);
-  //           var today_completed;
-  //           var today_notComplete;
-  //           var today_cancel;
-  //           res.data.data.todaySsl.forEach(element => {
-  //             if(element.name == slInfo[0].name){
-  //               today_completed = element.value;
-  //             }else if(element.name == slInfo[1].name){
-  //               today_notComplete = element.value;
-  //             }else if(element.name == slInfo[2].name){
-  //               today_cancel = element.value;
-  //             }
-  //           });
-  //           _this.setData({
-  //             today: {
-  //               completed: today_completed,
-  //               notComplete: today_notComplete,
-  //               cancel: today_cancel
-  //             }
-  //           });
-
-  //           //月度手术量（切换后才会加载，所以不能setOption）
-  //           ydsslOption.series[0].data = res.data.data.ydSsl;
-  //           var yd_completed;
-  //           var yd_notComplete;
-  //           var yd_cancel;
-  //           res.data.data.ydSsl.forEach(element => {
-  //             if(element.name == slInfo[0].name){
-  //               yd_completed = element.value;
-  //             }else if(element.name == slInfo[1].name){
-  //               yd_notComplete = element.value;
-  //             }else if(element.name == slInfo[2].name){
-  //               yd_cancel = element.value;
-  //             }
-  //           });
-  //           _this.setData({
-  //             month: {
-  //               completed: yd_completed,
-  //               notComplete: yd_notComplete,
-  //               cancel: yd_cancel
-  //             }
-  //           });
-
-  //           //周手术量
-  //           weekOption.series[0].data = res.data.data.weekSsl;
-  //           weekChart.clear();
-  //           weekChart.setOption(weekOption);
-            
-  //           //月手术量
-  //           monthOption.dataset.source = res.data.data.monthSsl;
-
-  //           //年手术量
-  //           yearOption.dataset.source = res.data.data.yearSsl;
-
-  //         }else{
-  //           log.error(res.data.msg);
-  //           wx.showModal({
-  //             title: '温馨提示',
-  //             content: res.data.msg,
-  //             showCancel: false,
-  //             confirmColor: '#06AE56'
-  //           })
-  //         }
-  //       },
-  //       fail({errMsg}) {
-  //         log.error('调用订单统计接口失败，'+errMsg)
-  //       },
-  //       complete(){
-  //         wx.hideLoading();
-  //       }
-  //     })
-  //   }
-  // },
   onHide:function(){
     log.info("离开“订单统计”");
   },
+  goBack:function(){
+    var _this = this;
+    if(this.data.statisticsTab1){
+      //周
+      wx.request({
+        url: app.globalData.baseUrl+'xcx/getOrderStatisticsNextBack',
+        method: 'POST',
+        data: {
+          orgId: app.globalData.userInfo.roleTypeId,
+          flag: 'week',
+          pageNum: _this.data.weekPageNum - 1
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        dataType:'json',
+        success (res) {
+          console.log(res.data);
+          if(res.data.code == 0){
+            log.info("订单统计周数据成功，weekPageNum:"+(_this.data.weekPageNum - 1));
+            _this.setData({
+              weekPageNum: _this.data.weekPageNum - 1,
+              weekTitle: res.data.data.title
+            });
+            weekOption.dataset.source = res.data.data.ssl;
+            weekChart.clear();
+            weekChart.setOption(weekOption);
+          }else{
+            log.error(res.data.msg);
+          }
+        },
+        fail({errMsg}) {
+          log.error("订单统计周数据失败，weekPageNum:"+(_this.data.weekPageNum - 1)+"，"+errMsg)
+        }
+      })
+      console.log("go back week");
+    }else if(this.data.statisticsTab2){
+      //月
+      wx.request({
+        url: app.globalData.baseUrl+'xcx/getOrderStatisticsNextBack',
+        method: 'POST',
+        data: {
+          orgId: app.globalData.userInfo.roleTypeId,
+          flag: 'month',
+          pageNum: _this.data.monthPageNum - 1
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        dataType:'json',
+        success (res) {
+          console.log(res.data);
+          if(res.data.code == 0){
+            log.info("订单统计月数据成功，monthPageNum："+(_this.data.monthPageNum - 1));
+            _this.setData({
+              monthPageNum: _this.data.monthPageNum - 1,
+              monthTitle: res.data.data.title
+            });
+            monthOption.dataset.source = res.data.data.ssl;
+            monthChart.clear();
+            monthChart.setOption(monthOption);
+          }else{
+            log.error(res.data.msg);
+          }
+        },
+        fail({errMsg}) {
+          log.error("订单统计月数据失败，monthPageNum:"+(_this.data.monthPageNum - 1)+"，"+errMsg)
+        }
+      })
+      console.log("go back month");
+    }else if(this.data.statisticsTab3){
+      //年
+      wx.request({
+        url: app.globalData.baseUrl+'xcx/getOrderStatisticsNextBack',
+        method: 'POST',
+        data: {
+          orgId: app.globalData.userInfo.roleTypeId,
+          flag: 'year',
+          pageNum: _this.data.yearPageNum - 1
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        dataType:'json',
+        success (res) {
+          console.log(res.data);
+          if(res.data.code == 0){
+            log.info("订单统计年数据成功，monthPageNum:"+(_this.data.yearPageNum - 1));
+            _this.setData({
+              yearPageNum: _this.data.yearPageNum - 1,
+              yearTitle: res.data.data.title
+            });
+            yearOption.dataset.source = res.data.data.ssl;
+            yearChart.clear();
+            yearChart.setOption(yearOption);
+          }else{
+            log.error(res.data.msg);
+          }
+        },
+        fail({errMsg}) {
+          log.error("订单统计年数据失败，monthPageNum:"+(_this.data.yearPageNum - 1)+"，"+errMsg)
+        }
+      })
+
+      console.log("go back year");
+    }
+  },
+  goNext:function(){
+    var _this = this;
+    if(this.data.statisticsTab1){
+      wx.request({
+        url: app.globalData.baseUrl+'xcx/getOrderStatisticsNextBack',
+        method: 'POST',
+        data: {
+          orgId: app.globalData.userInfo.roleTypeId,
+          flag: 'week',
+          pageNum: _this.data.weekPageNum + 1
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        dataType:'json',
+        success (res) {
+          console.log(res.data);
+          if(res.data.code == 0){
+            log.info("订单统计周数据成功，weekPageNum:"+(_this.data.weekPageNum + 1));
+            _this.setData({
+              weekPageNum: _this.data.weekPageNum + 1,
+              weekTitle: res.data.data.title
+            });
+            weekOption.dataset.source = res.data.data.ssl;
+            weekChart.clear();
+            weekChart.setOption(weekOption);
+          }else{
+            log.error(res.data.msg);
+          }
+        },
+        fail({errMsg}) {
+          log.error("订单统计周数据失败，weekPageNum:"+(_this.data.weekPageNum + 1)+"，"+errMsg)
+        }
+      })
+      //周
+      console.log("go next week");
+    }else if(this.data.statisticsTab2){
+      //月
+      wx.request({
+        url: app.globalData.baseUrl+'xcx/getOrderStatisticsNextBack',
+        method: 'POST',
+        data: {
+          orgId: app.globalData.userInfo.roleTypeId,
+          flag: 'month',
+          pageNum: _this.data.monthPageNum + 1
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        dataType:'json',
+        success (res) {
+          console.log(res.data);
+          if(res.data.code == 0){
+            log.info("订单统计周数据成功，monthPageNum:"+(_this.data.monthPageNum + 1));
+            _this.setData({
+              monthPageNum: _this.data.monthPageNum + 1,
+              monthTitle: res.data.data.title
+            });
+            monthOption.dataset.source = res.data.data.ssl;
+            monthChart.clear();
+            monthChart.setOption(monthOption);
+          }else{
+            log.error(res.data.msg);
+          }
+        },
+        fail({errMsg}) {
+          log.error("订单统计月数据失败，monthPageNum:"+(_this.data.monthPageNum + 1)+"，"+errMsg)
+        }
+      })
+      console.log("go next month");
+    }else if(this.data.statisticsTab3){
+      //年
+      wx.request({
+        url: app.globalData.baseUrl+'xcx/getOrderStatisticsNextBack',
+        method: 'POST',
+        data: {
+          orgId: app.globalData.userInfo.roleTypeId,
+          flag: 'year',
+          pageNum: _this.data.yearPageNum + 1
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        dataType:'json',
+        success (res) {
+          console.log(res.data);
+          if(res.data.code == 0){
+            log.info("订单统计年数据成功，monthPageNum:"+(_this.data.yearPageNum + 1));
+            _this.setData({
+              yearPageNum: _this.data.yearPageNum + 1,
+              yearTitle: res.data.data.title
+            });
+            yearOption.dataset.source = res.data.data.ssl;
+            yearChart.clear();
+            yearChart.setOption(yearOption);
+          }else{
+            log.error(res.data.msg);
+          }
+        },
+        fail({errMsg}) {
+          log.error("订单统计年数据失败，monthPageNum:"+(_this.data.yearPageNum + 1)+"，"+errMsg)
+        }
+      })
+      console.log("go next year");
+    }
+  }
 })

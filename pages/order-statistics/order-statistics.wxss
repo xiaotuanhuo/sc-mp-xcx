@@ -68,3 +68,10 @@
   align-items: center;
   justify-content: center;
 }
+.center {
+  height: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

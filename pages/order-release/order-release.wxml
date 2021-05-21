@@ -3,7 +3,8 @@
   <form>
     <view class="customGroup">
       <view class="customGroupTitle">
-        <mp-icon type="field" icon="mosaic" color="#677DB2" size="{{23}}"></mp-icon>
+        <!-- <mp-icon type="field" icon="mosaic" color="#677DB2" size="{{23}}"></mp-icon> -->
+        <image style="width:17px;height:17px;" src="/images/timeLogo.png"/>
         手术时间
       </view>
       <view class="customItems">
@@ -38,7 +39,8 @@
     
     <view class="customGroup">
       <view class="customGroupTitle">
-        <mp-icon type="field" icon="mosaic" color="#677DB2" size="{{23}}"></mp-icon>
+        <image style="width:17px;height:17px;" src="/images/personLogo.png"/>
+        <!-- <mp-icon type="field" icon="mosaic" color="#677DB2" size="{{23}}"></mp-icon> -->
         客户信息
       </view>
       <view class="customItems">
@@ -76,7 +78,8 @@
     
     <view class="customGroup">
       <view class="customGroupTitle">
-        <mp-icon type="field" icon="mosaic" color="#677DB2" size="{{23}}"></mp-icon>
+        <!-- <mp-icon type="field" icon="mosaic" color="#677DB2" size="{{23}}"></mp-icon> -->
+        <image style="width:17px;height:17px;" src="/images/infoLogo.png"/>
         手术信息
       </view>
       <view class="customItems">
@@ -130,7 +133,14 @@
   </form>
   <mp-dialog show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}" mask-closable="{{false}}">
     <view style="height:{{height*0.8}}rpx">
-      <mp-searchbar bindselectresult="selectResult" search="{{search}}"></mp-searchbar>
+      <!-- <mp-searchbar bindselectresult="selectResult" bindfocus="focusEvent" search="{{search}}"></mp-searchbar> -->
+      <wux-search-bar value="{{value}}" clear="{{true}}" show-cancel="{{true}}" controlled="{{true}}" bind:change="onChange" bind:cancel="onCancel" bind:clear="onClear"/>
+      <view>
+        <block wx:for="{{operativeNames}}"  wx:key="value" wx:for-item="operativeName">
+          <view data-value="{{operativeName.value}}" data-text="{{operativeName.text}}" style="border-bottom:1px solid #eee;margin:10px 0px;" bindtap="selectResult">{{operativeName.text}}</view>
+        </block>
+      </view>
+      
 
       <view class="selectedOperativesView" wx:if="{{selectedOperatives.length!=0}}">
         <view class="selectedOperativesTitle">已选择手术列表：</view>

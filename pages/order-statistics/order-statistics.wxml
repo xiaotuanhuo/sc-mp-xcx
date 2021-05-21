@@ -61,6 +61,21 @@
       <i-tab key="statisticsTab2" title="月手术量"></i-tab>
       <i-tab key="statisticsTab3" title="年手术量"></i-tab>
     </i-tabs>
+
+    <view class="weui-flex">
+        <view class="center" style="width:80rpx" bindtap="goBack">
+          <image style="width:24px;height:24px;" src="/images/arrow-left-filling.png"/>
+          <!-- <mp-icon type="field" icon="back" color="black" size="{{13}}"></mp-icon> -->
+        </view>
+        <view class="weui-flex__item center" style="text-align:center;" wx:if="{{statisticsTab1}}">{{weekTitle}}</view>
+        <view class="weui-flex__item center" style="text-align:center;" wx:if="{{statisticsTab2}}">{{monthTitle}}</view>
+        <view class="weui-flex__item center" style="text-align:center;" wx:if="{{statisticsTab3}}">{{yearTitle}}</view>
+        <view class="center" style="width:80rpx;text-align:right;" bindtap="goNext">
+          <!-- <mp-icon type="field" icon="arrow" color="black" size="{{15}}"></mp-icon> -->
+          <image style="width:24px;height:24px;" src="/images/arrow-right-filling.png"/>
+        </view>
+    </view>
+    
     <view wx:if="{{statisticsTab1}}" class='statisticsTab1'>
       <view style="height:500rpx;width:95%">
         <!-- <ec-canvas id="weekSsl-chart" canvas-id="weekSsl-chart" ec="{{ weekSslEc }}" force-use-old-canvas="true"></ec-canvas> -->

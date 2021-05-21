@@ -1,6 +1,8 @@
 {
     "components": [
         "rater",
-        "divider"
+        "divider",
+        "search-bar",
+        "icon"
     ]
 }

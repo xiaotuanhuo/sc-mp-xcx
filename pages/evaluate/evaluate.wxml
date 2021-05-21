@@ -9,7 +9,7 @@
       <view class="evaluateScoreText">{{evaluateScoreText}}</view>
     </view>
 
-    <view class="evaluateLabel">
+    <view class="evaluateLabel {{showLabel?'show':'hide'}}">
       <view class="weui-flex">
         <view class="weui-flex__item">
           <view class="labelText" style="border-color:{{fftd.color}};color:{{fftd.color}}" bindtap="fftdSelect">{{fftd.text}}</view>
@@ -36,10 +36,16 @@
       </view>
     </view>
 
+    <view class="labels {{showLabel?'hide':'show'}}">
+      <block wx:for="{{labels}}"  wx:key="labelId" wx:for-item="label">
+        <view>{{label.labelName}}</view>
+      </block>
+    </view>
+
     <view class="evaluateView">
       <textarea name="evaluateRemark" class="evaluateRemark" value="{{evaluateRemark}}" placeholder="您如果有其它意见和建议，请放心填写" placeholder-class="evaluateRemarkPlaceholder" bindinput="evaluateTextChange"/>
     </view>
 
-    <button class="evaluateSubmit" bindtap="evaluateSubmit" disabled="{{isDisabled}}">提交</button>
+    <button class="evaluateSubmit {{showLabel?'show':'hide'}}" bindtap="evaluateSubmit">提交</button>
   </view>
 </view>

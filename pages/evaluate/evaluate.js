@@ -5,80 +5,9 @@ const app = getApp()
 
 const evaluateText = ['差','一般','满意'];
 const evaluateColor = ['#B5B5B5','#FFAE00'];
-const evaluateLabel = {
-  fftd: [
-    {
-      text:'服务态度好',
-      value:'1'
-    },{
-      text:'服务态度一般',
-      value:'2'
-    },{
-      text:'服务态度差',
-      value:'3'
-    }
-  ],
-  phd: [
-    {
-      text:'配合度高',
-      value:'1'
-    },{
-      text:'配合度一般',
-      value:'2'
-    },{
-      text:'配合度较差',
-      value:'3'
-    }
-  ],
-  sqpg: [
-    {
-      text:'术前评估及时',
-      value:'1'
-    },{
-      text:'术前评估有遗漏',
-      value:'2'
-    },{
-      text:'术前评估不及时',
-      value:'3'
-    }
-  ],
-  szgl: [
-    {
-      text:'术中管理平稳',
-      value:'1'
-    },{
-      text:'术中管理欠妥',
-      value:'2'
-    },{
-      text:'术中管理较差',
-      value:'3'
-    }
-  ],
-  shbfz: [
-    {
-      text:'术后无并发症',
-      value:'1'
-    },{
-      text:'术后并发症少',
-      value:'2'
-    },{
-      text:'术后并发症较多',
-      value:'3'
-    }
-  ],
-  shtt: [
-    {
-      text:'术后无疼痛',
-      value:'1'
-    },{
-      text:'术后疼痛能忍受',
-      value:'2'
-    },{
-      text:'术后疼痛剧烈',
-      value:'3'
-    }
-  ],
-};
+
+var evaluateLabels = [[{"labelId":"11","labelName":"服务态度好","parentId":"1","labelLevel":"1","leaf":"1"},{"labelId":"21","labelName":"配合度高","parentId":"2","labelLevel":"1","leaf":"1"},{"labelId":"31","labelName":"术前评估及时","parentId":"3","labelLevel":"1","leaf":"1"},{"labelId":"41","labelName":"术中管理平稳","parentId":"4","labelLevel":"1","leaf":"1"},{"labelId":"51","labelName":"术后无并发症","parentId":"5","labelLevel":"1","leaf":"1"},{"labelId":"61","labelName":"术后无疼痛","parentId":"6","labelLevel":"1","leaf":"1"}],[{"labelId":"12","labelName":"服务态度一般","parentId":"1","labelLevel":"2","leaf":"1"},{"labelId":"22","labelName":"配合度一般","parentId":"2","labelLevel":"2","leaf":"1"},{"labelId":"32","labelName":"术前评估有遗漏","parentId":"3","labelLevel":"2","leaf":"1"},{"labelId":"42","labelName":"术中管理欠妥","parentId":"4","labelLevel":"2","leaf":"1"},{"labelId":"52","labelName":"术后并发症少","parentId":"5","labelLevel":"2","leaf":"1"},{"labelId":"62","labelName":"术后疼痛能忍受","parentId":"6","labelLevel":"2","leaf":"1"}],[{"labelId":"13","labelName":"服务态度差","parentId":"1","labelLevel":"3","leaf":"1"},{"labelId":"23","labelName":"配合度较差","parentId":"2","labelLevel":"3","leaf":"1"},{"labelId":"33","labelName":"术前评估不及时","parentId":"3","labelLevel":"3","leaf":"1"},{"labelId":"43","labelName":"术中管理较差","parentId":"4","labelLevel":"3","leaf":"1"},{"labelId":"53","labelName":"术后并发症较多","parentId":"5","labelLevel":"3","leaf":"1"},{"labelId":"63","labelName":"术后疼痛剧烈","parentId":"6","labelLevel":"3","leaf":"1"}]];
+
 Page({
   onShareAppMessage() {
     return {
@@ -88,38 +17,39 @@ Page({
   },
   data:{
     theme: app.globalData.theme,
-    isDisabled: false,
+    showLabel: true,
+    labels: [],
     documentId:'',
     evaluateScoreText:evaluateText[2],
     evaluateScore: 4,
     evaluateRemark: '',
     fftd: {
-      text: evaluateLabel.fftd[0].text,
+      text: evaluateLabels[0][0].labelName,
       value: '0',
       color: evaluateColor[0]
     },
     phd: {
-      text: evaluateLabel.phd[0].text,
+      text: evaluateLabels[0][1].labelName,
       value: '0',
       color: evaluateColor[0]
     },
     sqpg: {
-      text: evaluateLabel.sqpg[0].text,
+      text: evaluateLabels[0][2].labelName,
       value: '0',
       color: evaluateColor[0]
     },
     szgl: {
-      text: evaluateLabel.szgl[0].text,
+      text: evaluateLabels[0][3].labelName,
       value: '0',
       color: evaluateColor[0]
     },
     shbfz: {
-      text: evaluateLabel.shbfz[0].text,
+      text: evaluateLabels[0][4].labelName,
       value: '0',
       color: evaluateColor[0]
     },
     shtt: {
-      text: evaluateLabel.shtt[0].text,
+      text: evaluateLabels[0][5].labelName,
       value: '0',
       color: evaluateColor[0]
     },
@@ -140,32 +70,32 @@ Page({
           evaluateScore: score,
           evaluateScoreText: evaluateText[0],
           fftd: {
-            text: evaluateLabel.fftd[2].text,
+            text: evaluateLabels[2][0].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           phd: {
-            text: evaluateLabel.phd[2].text,
+            text: evaluateLabels[2][1].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           sqpg: {
-            text: evaluateLabel.sqpg[2].text,
+            text: evaluateLabels[2][2].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           szgl: {
-            text: evaluateLabel.szgl[2].text,
+            text: evaluateLabels[2][3].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           shbfz: {
-            text: evaluateLabel.shbfz[2].text,
+            text: evaluateLabels[2][4].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           shtt: {
-            text: evaluateLabel.shtt[2].text,
+            text: evaluateLabels[2][5].labelName,
             value: '0',
             color: evaluateColor[0]
           },
@@ -175,32 +105,32 @@ Page({
           evaluateScore: score,
           evaluateScoreText: evaluateText[1],
           fftd: {
-            text: evaluateLabel.fftd[1].text,
+            text: evaluateLabels[1][0].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           phd: {
-            text: evaluateLabel.phd[1].text,
+            text: evaluateLabels[1][1].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           sqpg: {
-            text: evaluateLabel.sqpg[1].text,
+            text: evaluateLabels[1][2].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           szgl: {
-            text: evaluateLabel.szgl[1].text,
+            text: evaluateLabels[1][3].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           shbfz: {
-            text: evaluateLabel.shbfz[1].text,
+            text: evaluateLabels[1][4].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           shtt: {
-            text: evaluateLabel.shtt[1].text,
+            text: evaluateLabels[1][5].labelName,
             value: '0',
             color: evaluateColor[0]
           },
@@ -210,32 +140,32 @@ Page({
           evaluateScore: score,
           evaluateScoreText: evaluateText[2],
           fftd: {
-            text: evaluateLabel.fftd[0].text,
+            text: evaluateLabels[0][0].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           phd: {
-            text: evaluateLabel.phd[0].text,
+            text: evaluateLabels[0][1].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           sqpg: {
-            text: evaluateLabel.sqpg[0].text,
+            text: evaluateLabels[0][2].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           szgl: {
-            text: evaluateLabel.szgl[0].text,
+            text: evaluateLabels[0][3].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           shbfz: {
-            text: evaluateLabel.shbfz[0].text,
+            text: evaluateLabels[0][4].labelName,
             value: '0',
             color: evaluateColor[0]
           },
           shtt: {
-            text: evaluateLabel.shtt[0].text,
+            text: evaluateLabels[0][5].labelName,
             value: '0',
             color: evaluateColor[0]
           },
@@ -249,6 +179,30 @@ Page({
     console.log("documentId1:"+this.data.documentId);
 
     var _this = this;
+    wx.request({
+      url: app.globalData.baseUrl+'xcx/getEvaluateLabels',
+      method: 'GET',
+      data: {
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      dataType:'json',
+      success (res) {
+        console.log(res.data);
+        if(res.data.code == 0){
+          evaluateLabels = res.data.data;
+          
+          log.info("加载评价标签信息");
+        }else{
+          log.error("获取评价标签信息失败");
+        }
+      },
+      fail({errMsg}) {
+        log.error('调用获取评价标签接口失败，'+errMsg)
+      }
+    });
+
     wx.request({
       url: app.globalData.baseUrl+'xcx/getEvaluate',
       method: 'GET',
@@ -264,72 +218,19 @@ Page({
         if(res.data.code == 0){
           if(res.data.data != null){
             var text = '';
-            var fftd = '';
-            var phd = '';
-            var sqpg = '';
-            var szgl = '';
-            var shbfz = '';
-            var shtt = '';
             if(res.data.data.score < 2){
               text = evaluateText[0];
-              fftd = evaluateLabel.fftd[2].text;
-              phd = evaluateLabel.phd[2].text;
-              sqpg = evaluateLabel.sqpg[2].text;
-              szgl = evaluateLabel.szgl[2].text;
-              shbfz = evaluateLabel.shbfz[2].text;
-              shtt = evaluateLabel.shtt[2].text;
             }else if(res.data.data.score >=2 && res.data.data.score < 4){
               text = evaluateText[1];
-              fftd = evaluateLabel.fftd[1].text;
-              phd = evaluateLabel.phd[1].text;
-              sqpg = evaluateLabel.sqpg[1].text;
-              szgl = evaluateLabel.szgl[1].text;
-              shbfz = evaluateLabel.shbfz[1].text;
-              shtt = evaluateLabel.shtt[1].text;
             }else{
               text = evaluateText[2];
-              fftd = evaluateLabel.fftd[0].text;
-              phd = evaluateLabel.phd[0].text;
-              sqpg = evaluateLabel.sqpg[0].text;
-              szgl = evaluateLabel.szgl[0].text;
-              shbfz = evaluateLabel.shbfz[0].text;
-              shtt = evaluateLabel.shtt[0].text;
             }
             _this.setData({
-              isDisabled: true,
               evaluateScoreText:text,
               evaluateScore: res.data.data.score,
               evaluateRemark: res.data.data.remark,
-              fftd: {
-                text: fftd,
-                value: res.data.data.fftd,
-                color: res.data.data.fftd!='0'?evaluateColor[1]:evaluateColor[0]
-              },
-              phd: {
-                text: phd,
-                value: res.data.data.phd,
-                color: res.data.data.phd!='0'?evaluateColor[1]:evaluateColor[0]
-              },
-              sqpg: {
-                text: sqpg,
-                value: res.data.data.sqpg,
-                color: res.data.data.sqpg!='0'?evaluateColor[1]:evaluateColor[0]
-              },
-              szgl: {
-                text: szgl,
-                value: res.data.data.szgl,
-                color: res.data.data.szgl!='0'?evaluateColor[1]:evaluateColor[0]
-              },
-              shbfz: {
-                text: shbfz,
-                value: res.data.data.shbfz,
-                color: res.data.data.shbfz!='0'?evaluateColor[1]:evaluateColor[0]
-              },
-              shtt: {
-                text: shtt,
-                value: res.data.data.shtt,
-                color: res.data.data.shtt!='0'?evaluateColor[1]:evaluateColor[0]
-              },
+              showLabel: false,
+              labels: res.data.data.labels
             });
           }
           
@@ -354,6 +255,15 @@ Page({
       title: '提交中...',
     });
     var _this = this;
+    var labelId = (_this.data.fftd.value == '0'?'':_this.data.fftd.value+',')
+    + (_this.data.phd.value == '0'?'':_this.data.phd.value+',')
+    + (_this.data.sqpg.value == '0'?'':_this.data.sqpg.value+',')
+    + (_this.data.szgl.value == '0'?'':_this.data.szgl.value+',')
+    + (_this.data.shbfz.value == '0'?'':_this.data.shbfz.value+',')
+    + (_this.data.shtt.value == '0'?'':_this.data.shtt.value+',');
+
+    console.log("labelId : "+labelId.substr(0, labelId.length-1));
+    
     wx.request({
       url: app.globalData.baseUrl+'xcx/orderEvaluate',
       method: 'POST',
@@ -361,12 +271,7 @@ Page({
         documentId: _this.data.documentId,
         score: _this.data.evaluateScore,
         remark: _this.data.evaluateRemark,
-        fftd: _this.data.fftd.value,
-        phd: _this.data.phd.value,
-        sqpg: _this.data.sqpg.value,
-        szgl: _this.data.szgl.value,
-        shbfz: _this.data.shbfz.value,
-        shtt: _this.data.shtt.value,
+        labelId: labelId.substr(0, labelId.length-1),
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -377,11 +282,12 @@ Page({
         if(res.data.code == 0){
           log.info("订单评价成功（"+_this.data.documentId+"）");
           _this.setData({
-            isDisabled: true
+            labels: res.data.data.labels,
+            showLabel: false
           });
           wx.showModal({
             title: '温馨提示',
-            content: res.data.msg,
+            content: "评价成功，谢谢！",
             showCancel: false,
             confirmColor: '#06AE56'
           })
@@ -408,7 +314,7 @@ Page({
       if(this.data.evaluateScore < 2){
         this.setData({
           fftd: {
-            value: evaluateLabel.fftd[2].value,
+            value: evaluateLabels[2][0].labelId,
             text: this.data.fftd.text,
             color: evaluateColor[1]
           }
@@ -416,7 +322,7 @@ Page({
       }else if(this.data.evaluateScore >=2 && this.data.evaluateScore < 4){
         this.setData({
           fftd: {
-            value: evaluateLabel.fftd[1].value,
+            value: evaluateLabels[1][0].labelId,
             text: this.data.fftd.text,
             color: evaluateColor[1]
           }
@@ -424,7 +330,7 @@ Page({
       }else {
         this.setData({
           fftd: {
-            value: evaluateLabel.fftd[0].value,
+            value: evaluateLabels[0][0].labelId,
             text: this.data.fftd.text,
             color: evaluateColor[1]
           }
@@ -446,7 +352,7 @@ Page({
       if(this.data.evaluateScore < 2){
         this.setData({
           phd: {
-            value: evaluateLabel.phd[2].value,
+            value: evaluateLabels[2][1].labelId,
             text: this.data.phd.text,
             color: evaluateColor[1]
           }
@@ -454,7 +360,7 @@ Page({
       }else if(this.data.evaluateScore >=2 && this.data.evaluateScore < 4){
         this.setData({
           phd: {
-            value: evaluateLabel.phd[1].value,
+            value: evaluateLabels[1][1].labelId,
             text: this.data.phd.text,
             color: evaluateColor[1]
           }
@@ -462,7 +368,7 @@ Page({
       }else {
         this.setData({
           phd: {
-            value: evaluateLabel.phd[0].value,
+            value: evaluateLabels[0][1].labelId,
             text: this.data.phd.text,
             color: evaluateColor[1]
           }
@@ -483,7 +389,7 @@ Page({
       if(this.data.evaluateScore < 2){
         this.setData({
           sqpg: {
-            value: evaluateLabel.sqpg[2].value,
+            value: evaluateLabels[2][2].labelId,
             text: this.data.sqpg.text,
             color: evaluateColor[1]
           }
@@ -491,7 +397,7 @@ Page({
       }else if(this.data.evaluateScore >=2 && this.data.evaluateScore < 4){
         this.setData({
           sqpg: {
-            value: evaluateLabel.sqpg[1].value,
+            value: evaluateLabels[1][2].labelId,
             text: this.data.sqpg.text,
             color: evaluateColor[1]
           }
@@ -499,7 +405,7 @@ Page({
       }else {
         this.setData({
           sqpg: {
-            value: evaluateLabel.sqpg[0].value,
+            value: evaluateLabels[2][2].labelId,
             text: this.data.sqpg.text,
             color: evaluateColor[1]
           }
@@ -520,7 +426,7 @@ Page({
       if(this.data.evaluateScore < 2){
         this.setData({
           szgl: {
-            value: evaluateLabel.szgl[2].value,
+            value: evaluateLabels[2][3].labelId,
             text: this.data.szgl.text,
             color: evaluateColor[1]
           }
@@ -528,7 +434,7 @@ Page({
       }else if(this.data.evaluateScore >=2 && this.data.evaluateScore < 4){
         this.setData({
           szgl: {
-            value: evaluateLabel.szgl[1].value,
+            value: evaluateLabels[1][3].labelId,
             text: this.data.szgl.text,
             color: evaluateColor[1]
           }
@@ -536,7 +442,7 @@ Page({
       }else {
         this.setData({
           szgl: {
-            value: evaluateLabel.szgl[0].value,
+            value: evaluateLabels[0][3].labelId,
             text: this.data.szgl.text,
             color: evaluateColor[1]
           }
@@ -557,7 +463,7 @@ Page({
       if(this.data.evaluateScore < 2){
         this.setData({
           shbfz: {
-            value: evaluateLabel.shbfz[2].value,
+            value: evaluateLabels[2][4].labelId,
             text: this.data.shbfz.text,
             color: evaluateColor[1]
           }
@@ -565,7 +471,7 @@ Page({
       }else if(this.data.evaluateScore >=2 && this.data.evaluateScore < 4){
         this.setData({
           shbfz: {
-            value: evaluateLabel.shbfz[1].value,
+            value: evaluateLabels[1][4].labelId,
             text: this.data.shbfz.text,
             color: evaluateColor[1]
           }
@@ -573,7 +479,7 @@ Page({
       }else {
         this.setData({
           shbfz: {
-            value: evaluateLabel.shbfz[0].value,
+            value: evaluateLabels[0][4].labelId,
             text: this.data.shbfz.text,
             color: evaluateColor[1]
           }
@@ -594,7 +500,7 @@ Page({
       if(this.data.evaluateScore < 2){
         this.setData({
           shtt: {
-            value: evaluateLabel.shtt[2].value,
+            value: evaluateLabels[2][5].labelId,
             text: this.data.shtt.text,
             color: evaluateColor[1]
           }
@@ -602,7 +508,7 @@ Page({
       }else if(this.data.evaluateScore >=2 && this.data.evaluateScore < 4){
         this.setData({
           shtt: {
-            value: evaluateLabel.shtt[1].value,
+            value: evaluateLabels[1][5].labelId,
             text: this.data.shtt.text,
             color: evaluateColor[1]
           }
@@ -610,7 +516,7 @@ Page({
       }else {
         this.setData({
           shtt: {
-            value: evaluateLabel.shtt[0].value,
+            value: evaluateLabels[0][5].labelId,
             text: this.data.shtt.text,
             color: evaluateColor[1]
           }

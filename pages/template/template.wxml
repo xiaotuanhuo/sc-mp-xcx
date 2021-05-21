@@ -49,7 +49,7 @@
       </view>
       <view>
         <view style="text-align:right;background-color:#508CFC;color:#fff">
-          <text style="margin-left:20rpx;margin-right:20rpx;">麻醉方法：{{qaUserName}}</text>
+          <text style="margin-left:20rpx;margin-right:20rpx;">麻醉医生：{{qaUserName}}</text>
         </view>
       </view>
     </view>

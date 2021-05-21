@@ -4,7 +4,8 @@
     "mp-toptips": "weui-miniprogram/toptips/toptips",
     "mp-dialog": "weui-miniprogram/dialog/dialog",
     "mp-searchbar": "weui-miniprogram/searchbar/searchbar",
-    "mp-icon": "weui-miniprogram/icon/icon"
+    "mp-icon": "weui-miniprogram/icon/icon",
+    "wux-search-bar": "/common/lib/wux-weapp/lib/search-bar/index"
   },
   "navigationBarTitleText":"订单发布"
 }

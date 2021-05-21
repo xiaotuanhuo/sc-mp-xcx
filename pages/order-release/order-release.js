@@ -20,6 +20,8 @@ Page({
     height: null,
     dialogShow: false,
     buttons: [{text: '确定',extClass: 'buttonStyle'}],
+    operativeNames: [],
+    value: '',
     selectedOperatives: [],
     order:{
       patientName: "",
@@ -39,6 +41,49 @@ Page({
       memo: ""
     },
   },
+  onClear(e) {
+    console.log('onClear', e)
+    this.setData({
+      operativeNames: [],
+      value: ''
+    })
+  },
+  onCancel(e) {
+    console.log('onCancel', e)
+    this.setData({
+      operativeNames: [],
+      value: ''
+    })
+  },
+  onChange(e) {
+    console.log('onChange: ', e.detail.value)
+    var _this = this;
+    wx.request({
+      url: app.globalData.baseUrl+'xcx/searchOperativeNames',
+      method: 'POST',
+      data: {
+        key: e.detail.value,
+        orgId: app.globalData.userInfo.roleTypeId
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      dataType:'json',
+      success (res) {
+        console.log(res.data);
+        if(res.data.code == 0){
+          _this.setData({
+            operativeNames : res.data.data
+          })
+        }else{
+          log.error(res.data.msg);
+          _this.setData({
+            operativeNames : []
+          })
+        }
+      }
+    });
+  },
   search: function (value) {
     return new Promise((resolve, reject) => {
       if(value.length > 0){
@@ -46,7 +91,8 @@ Page({
           url: app.globalData.baseUrl+'xcx/searchOperativeNames',
           method: 'POST',
           data: {
-            key: value
+            key: value,
+            orgId: app.globalData.userInfo.roleTypeId
           },
           header: {
             'content-type': 'application/json' // 默认值
@@ -70,27 +116,69 @@ Page({
       }
     })
   },
+
   selectResult: function (e) {
-      console.log('select result', e.detail)
+      console.log('select result', e.currentTarget)
       var operatives = this.data.selectedOperatives;
       var flag = true;
       operatives.forEach(operative => {
-        if(operative.value == e.detail.item.value){
+        if(operative.value == e.currentTarget.dataset.value){
           flag = false;
         }
       });
       if(flag){
-        operatives.push(e.detail.item);
+        operatives.push(e.currentTarget.dataset);
         this.setData({
           selectedOperatives: operatives
         });
       }
+
+      // console.log('select result', e.detail)
+      // var operatives = this.data.selectedOperatives;
+      // var flag = true;
+      // operatives.forEach(operative => {
+      //   if(operative.value == e.detail.item.value){
+      //     flag = false;
+      //   }
+      // });
+      // if(flag){
+      //   operatives.push(e.detail.item);
+      //   this.setData({
+      //     selectedOperatives: operatives
+      //   });
+      // }
   },
 
   searchOperativeName: function () {
     this.setData({
         dialogShow: true
     })
+    var _this = this;
+    wx.request({
+      url: app.globalData.baseUrl+'xcx/searchOperativeNames',
+      method: 'POST',
+      data: {
+        key: '',
+        orgId: app.globalData.userInfo.roleTypeId
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      dataType:'json',
+      success (res) {
+        console.log(res.data);
+        if(res.data.code == 0){
+          _this.setData({
+            operativeNames : res.data.data
+          })
+        }else{
+          log.error(res.data.msg);
+          _this.setData({
+            operativeNames : []
+          })
+        }
+      }
+    });
   },
   deleteSelectedOperative: function(event){
     var index = event.currentTarget.dataset.index;
@@ -193,6 +281,18 @@ Page({
       }
     }
 
+    var operateUsers = '';
+    if(this.data.order.operateUser.trim()!=''){
+      operateUsers = this.data.order.operateUser.trim();
+      if(this.data.order.operateUser2.trim()!=''){
+        operateUsers = operateUsers+";"+this.data.order.operateUser2.trim();
+      }
+    }else{
+      if(this.data.order.operateUser2.trim()!=''){
+        operateUsers = this.data.order.operateUser2.trim();
+      }
+    }
+
     var _this = this;
     wx.request({
       url: app.globalData.baseUrl+'xcx/saveOrder',
@@ -206,7 +306,7 @@ Page({
         patientNum: _this.data.order.patientNum,
         patientBednum: _this.data.order.patientBednum,
         documentTitle: _this.data.order.documentTitle,
-        operateUser: _this.data.order.operateUser+";"+_this.data.order.operateUser2,
+        operateUser: operateUsers,
         operateQide: _this.data.order.operateQide,
         anestheticId: _this.data.order.anestheticId,
         anestheticName: _this.data.order.anestheticName,

@@ -53,3 +53,9 @@
   background-color: #F69E3C;
   color: #ffffff;
 }
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}
