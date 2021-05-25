@@ -51,3 +51,27 @@
  .weui-form__control-area {
   margin: 20rpx 0;
 }
+
+.customGroup {
+  padding: 80rpx 40rpx;
+}
+.customItem {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  border: 1px solid #D7CDCB;
+  border-radius: 5%;
+  margin: 30rpx 0rpx;
+  height: 32px;
+  padding: 0px 5px;
+}
+.customLabel {
+  text-align: left;
+  width: 240rpx;
+}
+.customButton {
+  margin-top: 40rpx;
+}
+.customPicker {
+  width: 300rpx;
+}
